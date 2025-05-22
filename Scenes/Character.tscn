@@ -21,6 +21,7 @@ shape = SubResource("CapsuleShape3D_677pu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21527, 0)
 spring_length = 6.0
 script = ExtResource("2_jo2ib")
+min_vertical_angle = -1.55334
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.33997)

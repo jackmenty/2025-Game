@@ -28,7 +28,5 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 		
-	if input_dir:
-		move_direction.y = 0
 
 	move_and_slide()

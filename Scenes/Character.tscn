@@ -21,7 +21,6 @@ shape = SubResource("CapsuleShape3D_677pu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21527, 0)
 spring_length = 6.0
 script = ExtResource("2_jo2ib")
-min_vertical_angle = -1.55334
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.33997)
@@ -29,5 +28,6 @@ current = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.14857, 0)
+light_energy = 2.24
 spot_angle = 30.7
 spot_angle_attenuation = 1.27456

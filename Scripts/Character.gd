@@ -1,8 +1,10 @@
 extends CharacterBody3D
 
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+const SPEED = 25.0
+const JUMP_VELOCITY = 13.5
+const ACCELERATION = 10
+const DECELERATION = 15
 @onready var springarm = $SpringArm3D
 @onready var camera = $SpringArm3D/Camera3D
 
@@ -10,7 +12,7 @@ const JUMP_VELOCITY = 4.5
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += get_gravity() * delta * 4
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -20,7 +22,6 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	var direction: Vector3 = (springarm.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	print(springarm.transform.basis )
 	var corrected_dir = Vector3(direction.x, 0, direction.z).normalized()
 	if corrected_dir:
 		velocity.x = corrected_dir.x * SPEED
@@ -29,5 +30,9 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 		
-
+	if Input.is_action_just_pressed("ui_cancel"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		
+	if Input.is_action_just_pressed("ui_focus_next"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	move_and_slide()

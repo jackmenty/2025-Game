@@ -1,10 +1,11 @@
 extends CharacterBody3D
 
 
-const SPEED = 25.0
+const SPEED = 2
+const MAX_SPEED = 20
 const JUMP_VELOCITY = 13.5
-const ACCELERATION = 10
-const DECELERATION = 15
+const ACCELERATION = .5
+const DECELERATION = 20
 @onready var springarm = $SpringArm3D
 @onready var camera = $SpringArm3D/Camera3D
 
@@ -24,12 +25,17 @@ func _physics_process(delta: float) -> void:
 	var direction: Vector3 = (springarm.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	var corrected_dir = Vector3(direction.x, 0, direction.z).normalized()
 	if corrected_dir:
-		velocity.x = corrected_dir.x * SPEED
-		velocity.z = corrected_dir.z * SPEED
+		#print(corrected_dir)
+		velocity.x += corrected_dir.x * SPEED * ACCELERATION
+		velocity.z += corrected_dir.z * SPEED * ACCELERATION
+		if (abs(velocity.x) >= MAX_SPEED):
+			velocity.x = MAX_SPEED * corrected_dir.x
+		if (abs(velocity.z) >= MAX_SPEED):
+			velocity.z = MAX_SPEED * corrected_dir.z
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
-		
+		velocity.x -= velocity.x * delta * DECELERATION
+		velocity.z -= velocity.z * delta * DECELERATION
+	print(velocity.x, " ",  velocity.z)
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		

@@ -5,6 +5,30 @@ const SPEED = 20
 const JUMP_VELOCITY = 13.5
 @onready var springarm = $SpringArm3D
 @onready var camera = $SpringArm3D/Camera3D
+var max_health = 3
+var health = 0
+var damaged = true
+
+
+func _ready():
+	health = max_health
+	
+
+func take_damage(damage_amount: int):
+	if damaged:
+		health -= damage_amount
+		
+		if health <= 0:
+			die()
+
+func die():
+	pass
+
+func iframes():
+	damaged = false
+	await get_tree().create_timer(5).timeout
+	damaged = true
+
 
 
 func _physics_process(delta: float) -> void:

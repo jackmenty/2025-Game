@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cq25k3h20sq30"]
+[gd_scene load_steps=3 format=3 uid="uid://cq25k3h20sq30"]
 
-[ext_resource type="PackedScene" uid="uid://dqfrll158h75v" path="res://Scenes/Character.tscn" id="1_tfsjm"]
+[ext_resource type="PackedScene" uid="uid://dqfrll158h75v" path="res://Scenes/Player.tscn" id="1_tfsjm"]
+[ext_resource type="Script" uid="uid://rhpps7gyflyw" path="res://Scenes/checkpoint_manager.gd" id="2_08wme"]
 
 [node name="Level" type="Node3D"]
 
@@ -13,8 +14,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8308, 6.99323, 0)
 use_collision = true
 size = Vector3(6.33838, 14.9865, 30)
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("1_tfsjm")]
+[node name="Player" parent="." instance=ExtResource("1_tfsjm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.80151, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.931894, 0.362731, 0, -0.362731, 0.931894, 0, 18.5691, 41.5467)
+
+[node name="CheckpointManager" type="Node" parent="."]
+script = ExtResource("2_08wme")

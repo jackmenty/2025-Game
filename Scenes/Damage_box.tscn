@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://mkr64ivjykh6"]
+
+[ext_resource type="Script" uid="uid://b5pjvjxd0ffnd" path="res://Scripts/damage_box.gd" id="1_8yh6q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3xq7o"]
+albedo_color = Color(0.831273, 0.0821783, 2.88785e-07, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nvh32"]
+
+[node name="Damage_box" type="Node3D"]
+script = ExtResource("1_8yh6q")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+material_override = SubResource("StandardMaterial3D_3xq7o")
+use_collision = true
+
+[node name="Area3D" type="Area3D" parent="CSGBox3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/Area3D"]
+shape = SubResource("BoxShape3D_nvh32")
+
+[connection signal="body_entered" from="CSGBox3D/Area3D" to="." method="_on_area_3d_body_entered"]

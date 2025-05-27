@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b64xgj4fgraw"]
+
+[ext_resource type="Script" uid="uid://db51o3tujx1g2" path="res://Scripts/checkpoint.gd" id="1_wp6dl"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rvdls"]
+
+[node name="Checkpoint" type="Area3D"]
+script = ExtResource("1_wp6dl")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+cone = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_rvdls")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

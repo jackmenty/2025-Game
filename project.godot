@@ -63,7 +63,7 @@ sprint={
 
 lights_and_shadows/directional_shadow/soft_shadow_filter_quality=3
 anti_aliasing/quality/msaa_3d=1
-environment/defaults/default_clear_color=Color(0.534754, 0.716692, 0.918447, 1)
+environment/defaults/default_clear_color=Color(1.15514e-06, 0.736442, 0.945687, 1)
 
 [xr]
 

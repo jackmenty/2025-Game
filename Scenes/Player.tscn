@@ -1,16 +1,18 @@
 [gd_scene load_steps=5 format=3 uid="uid://dqfrll158h75v"]
 
-[ext_resource type="Script" uid="uid://oxp5hxhgiv1a" path="res://Scripts/Character.gd" id="1_0y7nr"]
+[ext_resource type="Script" uid="uid://oxp5hxhgiv1a" path="res://Scripts/Player.gd" id="1_0y7nr"]
 [ext_resource type="Script" uid="uid://b8c0gssqg25j1" path="res://Scripts/camera_spring_arm.gd" id="2_jo2ib"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jo2ib"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_677pu"]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("springarm", "camera")]
 collision_layer = 2
 axis_lock_angular_y = true
 script = ExtResource("1_0y7nr")
+springarm = NodePath("SpringArm3D")
+camera = NodePath("SpringArm3D/Camera3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_jo2ib")

@@ -5,7 +5,7 @@ const SPEED = 20
 const JUMP_VELOCITY = 13.5
 @export var springarm : SpringArm3D
 @export var camera : Camera3D
-var max_health = 3
+var max_health = 1
 var health = 0
 var damaged = true
 

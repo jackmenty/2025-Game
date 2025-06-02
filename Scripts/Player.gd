@@ -1,5 +1,5 @@
 extends CharacterBody3D
-
+class_name CPlayer
 
 const SPEED = 20
 const JUMP_VELOCITY = 13.5
@@ -17,17 +17,20 @@ func _ready():
 
 func take_damage(damage_amount: int):
 	if damaged:
-		health -= damage_amount
-		
+		health = health - damage_amount
+		print(health)
 		if health <= 0:
+			await get_tree().process_frame
 			die()
+		if health > 0:
+			iframes()
 
 func die():
 	get_tree().change_scene_to_file("res://Scenes/Game_over.tscn")
 
 func iframes():
 	damaged = false
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(5.0).timeout
 	damaged = true
 
 

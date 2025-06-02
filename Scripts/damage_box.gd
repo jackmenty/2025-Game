@@ -1,7 +1,7 @@
-extends Node
+extends Node3D
 
 
-func _on_area_3d_body_entered(body: CharacterBody3D) -> void:
-	if body.is_in_group("Player"):
-		Player.take_damage(1)
-		print(Player.health)
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body is CPlayer:
+		body.take_damage(1)

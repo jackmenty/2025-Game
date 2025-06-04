@@ -1,0 +1,76 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgidimangjygo"]
+
+[ext_resource type="Theme" uid="uid://dvq37ujhe48d3" path="res://Theme/ui_template.tres" id="1_3kf3n"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_3kf3n")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Continue" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.420833
+anchor_top = 0.318519
+anchor_right = 0.579167
+anchor_bottom = 0.414815
+offset_bottom = 3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 17
+text = "CONTINUE"
+metadata/_edit_use_anchors_ = true
+
+[node name="Settings" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.420833
+anchor_top = 0.474074
+anchor_right = 0.579167
+anchor_bottom = 0.569444
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 17
+text = "SETTINGS"
+metadata/_edit_use_anchors_ = true
+
+[node name="Return" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.420833
+anchor_top = 0.62963
+anchor_right = 0.579167
+anchor_bottom = 0.725
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 17
+text = "RETURN TO SCREEN"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0958333
+anchor_top = 0.0666667
+anchor_right = 0.904167
+anchor_bottom = 0.22037
+offset_bottom = -30.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 80
+text = "PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

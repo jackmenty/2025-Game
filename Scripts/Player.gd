@@ -1,8 +1,8 @@
 extends CharacterBody3D
 class_name CPlayer
 
-const SPEED = 20
-const JUMP_VELOCITY = 13.5
+const SPEED = 12
+const JUMP_VELOCITY = 25
 @export var springarm : SpringArm3D
 @export var camera : Camera3D
 var max_health = 10
@@ -53,16 +53,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = corrected_dir.x * SPEED
 		velocity.z = corrected_dir.z * SPEED
 		if Input.is_action_pressed("sprint"):
-			velocity.x *= 2
-			velocity.z *= 2
+			velocity.x *= 3
+			velocity.z *= 3
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-
-	if Input.is_action_just_pressed("ui_cancel"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
-	if Input.is_action_just_pressed("ui_focus_next"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 	move_and_slide()

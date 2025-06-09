@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgidimangjygo"]
+[gd_scene load_steps=3 format=3 uid="uid://cgidimangjygo"]
 
 [ext_resource type="Theme" uid="uid://dvq37ujhe48d3" path="res://Theme/ui_template.tres" id="1_3kf3n"]
+[ext_resource type="Script" uid="uid://ceuwdaxkk1y5w" path="res://Scenes/menu.gd" id="2_6pedr"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -10,6 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_3kf3n")
+script = ExtResource("2_6pedr")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -20,7 +22,7 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Continue" type="Button" parent="."]
+[node name="Continue" type="Button" parent="Panel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.420833
@@ -34,7 +36,7 @@ theme_override_font_sizes/font_size = 17
 text = "CONTINUE"
 metadata/_edit_use_anchors_ = true
 
-[node name="Settings" type="Button" parent="."]
+[node name="Settings" type="Button" parent="Panel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.420833
@@ -47,30 +49,35 @@ theme_override_font_sizes/font_size = 17
 text = "SETTINGS"
 metadata/_edit_use_anchors_ = true
 
-[node name="Return" type="Button" parent="."]
+[node name="Return" type="Button" parent="Panel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.420833
 anchor_top = 0.62963
 anchor_right = 0.579167
 anchor_bottom = 0.725
+offset_left = -5.79962
+offset_right = 5.79962
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 17
 text = "RETURN TO SCREEN"
 metadata/_edit_use_anchors_ = true
 
-[node name="RichTextLabel" type="Label" parent="."]
+[node name="RichTextLabel" type="Label" parent="Panel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0958333
 anchor_top = 0.0666667
 anchor_right = 0.904167
 anchor_bottom = 0.22037
-offset_bottom = -30.0
+offset_bottom = 10.4003
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 80
 text = "PAUSED"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Panel/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Panel/Return" to="." method="_on_return_pressed"]

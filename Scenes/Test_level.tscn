@@ -5,14 +5,14 @@
 
 [node name="Level" type="Node3D"]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-use_collision = true
-size = Vector3(300, 1, 300)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8308, 6.99323, 0)
 use_collision = true
 size = Vector3(6.33838, 14.9865, 30)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(300, 1, 300)
 
 [node name="Player" parent="." instance=ExtResource("1_tfsjm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.80151, 0)
@@ -22,3 +22,13 @@ transform = Transform3D(1, 0, 0, 0, 0.931894, 0.362731, 0, -0.362731, 0.931894, 
 
 [node name="Damage_box" parent="." instance=ExtResource("3_rbrd7")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 7.71301, 1.76048, 14.6632)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.0748185, -0.632212, 0, 0.147865, -0.319894, 0, 0, 0, 0.62712, 54.5584, 7.98159, 7.72868)
+use_collision = true
+size = Vector3(6.33838, 14.9865, 30)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(0.0154151, 0.130257, 0.613665, 0.126664, -0.455595, 0.0301914, 0.105738, 0.526774, -0.125631, 29.2445, 21.9052, -57.0592)
+use_collision = true
+size = Vector3(6.33838, 113.341, 30)

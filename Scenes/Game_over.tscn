@@ -1,10 +1,56 @@
-[gd_scene load_steps=2 format=3 uid="uid://bdaagw4myig5"]
+[gd_scene load_steps=4 format=3 uid="uid://b2eewr5u8drk0"]
 
 [ext_resource type="Theme" uid="uid://dvq37ujhe48d3" path="res://Theme/ui_template.tres" id="1_xj6ph"]
+[ext_resource type="Script" uid="uid://b1lsqsefb88t" path="res://Scripts/game_over.gd" id="2_thwhc"]
 
-[node name="GameOver" type="Control"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_thwhc"]
+bg_color = Color(0.0562916, 0.0562916, 0.0562916, 1)
+
+[node name="Game_over" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1_xj6ph")
+script = ExtResource("2_thwhc")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_thwhc")
+
+[node name="Checkpoint" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.409722
+anchor_top = 0.654321
+anchor_right = 0.590278
+anchor_bottom = 0.790123
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 17
+text = "Return to
+Checkpoint"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0958333
+anchor_top = 0.148148
+anchor_right = 0.904167
+anchor_bottom = 0.359568
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 100
+text = "YOU DIED"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Panel/Checkpoint" to="." method="_on_checkpoint_pressed"]

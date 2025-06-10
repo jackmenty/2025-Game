@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cgidimangjygo"]
 
 [ext_resource type="Theme" uid="uid://dvq37ujhe48d3" path="res://Theme/ui_template.tres" id="1_3kf3n"]
-[ext_resource type="Script" uid="uid://ceuwdaxkk1y5w" path="res://Scenes/menu.gd" id="2_6pedr"]
+[ext_resource type="Script" uid="uid://ceuwdaxkk1y5w" path="res://Scripts/menu.gd" id="2_6pedr"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -77,7 +77,6 @@ theme_override_font_sizes/font_size = 80
 text = "PAUSED"
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Panel/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Panel/Return" to="." method="_on_return_pressed"]

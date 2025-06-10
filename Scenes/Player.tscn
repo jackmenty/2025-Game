@@ -39,3 +39,7 @@ spot_angle_attenuation = 1.27456
 
 [node name="Menu" parent="." instance=ExtResource("3_gntrk")]
 visible = false
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.116
+one_shot = true

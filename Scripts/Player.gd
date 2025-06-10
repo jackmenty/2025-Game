@@ -1,13 +1,15 @@
 extends CharacterBody3D
 class_name CPlayer
 
-const SPEED = 12
+const SPEED = 8
 const JUMP_VELOCITY = 25
 @export var springarm : SpringArm3D
 @export var camera : Camera3D
 var max_health = 10
 var health = 0
 var damaged = true
+@onready var coyote_timer = $CoyoteTimer
+var time_in_air = 0.0
 
 
 func _ready():
@@ -38,9 +40,16 @@ func iframes():
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta * 4
+		time_in_air += delta
 
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor() || time_in_air < 1.0:
 		velocity.y = JUMP_VELOCITY
+		print(time_in_air)
+
+	var was_on_floor = is_on_floor()
+	
+	if was_on_floor && !is_on_floor():
+		time_in_air = 0
 
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 
@@ -53,8 +62,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = corrected_dir.x * SPEED
 		velocity.z = corrected_dir.z * SPEED
 		if Input.is_action_pressed("sprint"):
-			velocity.x *= 3
-			velocity.z *= 3
+			velocity.x *= 4
+			velocity.z *= 4
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)

@@ -5,6 +5,8 @@
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_rvdls"]
 
 [node name="Checkpoint" type="Area3D"]
+collision_layer = 7
+collision_mask = 3
 script = ExtResource("1_wp6dl")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]

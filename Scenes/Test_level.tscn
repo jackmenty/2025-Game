@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cq25k3h20sq30"]
+[gd_scene load_steps=5 format=3 uid="uid://cq25k3h20sq30"]
 
 [ext_resource type="PackedScene" uid="uid://bt1sm4q10r8i4" path="res://Scenes/Die_box.tscn" id="1_rbrd7"]
 [ext_resource type="PackedScene" uid="uid://dqfrll158h75v" path="res://Scenes/Player.tscn" id="1_tfsjm"]
 [ext_resource type="PackedScene" uid="uid://mkr64ivjykh6" path="res://Scenes/Damage_box.tscn" id="3_rbrd7"]
+[ext_resource type="PackedScene" uid="uid://b64xgj4fgraw" path="res://Scenes/Checkpoint.tscn" id="4_mrgul"]
 
 [node name="Level" type="Node3D"]
 
@@ -62,3 +63,6 @@ size = Vector3(6.33838, 48.5695, 30)
 
 [node name="DieBox" parent="." instance=ExtResource("1_rbrd7")]
 transform = Transform3D(510.011, 0, 0, 0, 4.05553, 0, 0, 0, 529.734, 0.613417, -16.3615, -17.9019)
+
+[node name="Checkpoint" parent="." instance=ExtResource("4_mrgul")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 6.09166, 0.781216, -9.39958)

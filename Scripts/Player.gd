@@ -9,13 +9,16 @@ var max_health = 3
 var health = 0
 var damaged = true
 var time_in_air = 1.0
+var checkpoint = Vector3.ZERO
+var start_pos = Vector3.ZERO
 
 
 func _ready():
 	await get_tree().process_frame
 	health = max_health
-	
-	
+	start_pos = global_position
+	checkpoint = global_position
+	add_to_group("Player")
 
 func take_damage(damage_amount: int):
 	if damaged:
@@ -38,14 +41,15 @@ func iframes():
 	await get_tree().create_timer(5.0).timeout
 	damaged = true
 
-
+func set_checkpoint(position):
+	checkpoint = position
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta * 4
 		time_in_air += delta
 
-	if Input.is_action_just_pressed("jump") and is_on_floor() || Input.is_action_pressed("jump") and time_in_air < .1:
+	if Input.is_action_just_pressed("jump") and is_on_floor() || Input.is_action_pressed("jump") and time_in_air < .2:
 		velocity.y = JUMP_VELOCITY
 
 	var was_on_floor = is_on_floor()

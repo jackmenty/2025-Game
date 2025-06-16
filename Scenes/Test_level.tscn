@@ -18,7 +18,7 @@ use_collision = true
 size = Vector3(300, 1, 222.933)
 
 [node name="Player" parent="." instance=ExtResource("1_tfsjm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.80151, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.931894, 0.362731, 0, -0.362731, 0.931894, 0, 18.5691, 41.5467)
@@ -37,7 +37,7 @@ use_collision = true
 size = Vector3(6.33838, 113.341, 30)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="."]
-transform = Transform3D(6.42625e-09, 1.73489e-08, 0.62712, 0.0998595, -0.565447, -2.40003e-09, 0.13225, 0.426959, -2.86606e-08, 1.75885, 21.9052, -57.0592)
+transform = Transform3D(5.21068e-09, 2.15144e-08, 0.62712, 0.115116, -0.509679, 0, 0.119207, 0.492191, -2.74123e-08, 1.75885, 21.9052, -57.0592)
 use_collision = true
 size = Vector3(6.33838, 113.341, 30)
 
@@ -52,12 +52,12 @@ use_collision = true
 size = Vector3(6.33838, 48.5695, 30)
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="."]
-transform = Transform3D(-0.0603316, -0.297226, -0.521484, 0.153854, -0.166154, -0.180721, -0.012282, -0.621348, 0.297781, 20.2891, 1.59387, 121.487)
+transform = Transform3D(-0.0603316, -0.297226, -0.521484, 0.153854, -0.166154, -0.180721, -0.012282, -0.621348, 0.297781, 14.2923, 1.59387, 111.232)
 use_collision = true
 size = Vector3(6.33838, 48.5695, 30)
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="."]
-transform = Transform3D(0.0553146, 0.0836179, -0.586501, 0.147874, -0.254622, 0.171287, -0.0503536, -0.655896, -0.141266, -25.0701, -0.566961, 163.489)
+transform = Transform3D(0.0553146, 0.0836179, -0.586501, 0.147874, -0.254622, 0.171287, -0.0503536, -0.655896, -0.141266, -24.1914, -0.566961, 156.129)
 use_collision = true
 size = Vector3(6.33838, 48.5695, 30)
 
@@ -65,4 +65,4 @@ size = Vector3(6.33838, 48.5695, 30)
 transform = Transform3D(510.011, 0, 0, 0, 4.05553, 0, 0, 0, 529.734, 0.613417, -16.3615, -17.9019)
 
 [node name="Checkpoint" parent="." instance=ExtResource("4_mrgul")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 6.09166, 0.781216, -9.39958)
+transform = Transform3D(3.2511, 0, 0, 0, 3.2511, 0, 0, 0, 3.2511, 0, 3.5052, 59.4915)

@@ -5,19 +5,21 @@ const SPEED = 8
 const JUMP_VELOCITY = 25
 @export var springarm : SpringArm3D
 @export var camera : Camera3D
-var max_health = 3
+var max_health = 5
 var health = 0
 var damaged = true
 var time_in_air = 1.0
-var checkpoint = Vector3.ZERO
-var start_pos = Vector3.ZERO
+#var checkpoint = Vector3.ZERO
+#var start_pos = Vector3.ZERO
+var death_pos = Vector3(0, 2, 0)
+var return_back = false
 
 
 func _ready():
 	await get_tree().process_frame
 	health = max_health
-	start_pos = global_position
-	checkpoint = global_position
+	#start_pos = global_position
+	#checkpoint = global_position
 	add_to_group("Player")
 
 func take_damage(damage_amount: int):
@@ -38,11 +40,15 @@ func die():
 
 func iframes():
 	damaged = false
-	await get_tree().create_timer(5.0).timeout
+	await get_tree().create_timer(2.0).timeout
 	damaged = true
 
-func set_checkpoint(position):
-	checkpoint = position
+func return_to_checkpoint():
+	position = death_pos
+	pass
+
+#func set_checkpoint(position):
+	#checkpoint = position
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():

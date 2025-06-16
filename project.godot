@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="2025 Game"
-run/main_scene="uid://cq25k3h20sq30"
+run/main_scene="uid://50w44vx0gwch"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Player="*res://Scripts/Player.gd"
+Checkpoint="*res://Scripts/checkpoint.gd"
 
 [input]
 

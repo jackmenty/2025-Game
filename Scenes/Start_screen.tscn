@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://50w44vx0gwch"]
+
+[ext_resource type="Theme" uid="uid://dvq37ujhe48d3" path="res://Theme/ui_template.tres" id="1_6d030"]
+[ext_resource type="Script" uid="uid://cx6v2e6njtboq" path="res://Scripts/start_screen.gd" id="2_ytx0o"]
+
+[node name="Start_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_6d030")
+script = ExtResource("2_ytx0o")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Play" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.409722
+anchor_top = 0.654321
+anchor_right = 0.590278
+anchor_bottom = 0.790123
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 17
+text = "PLAY"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0958333
+anchor_top = 0.148148
+anchor_right = 0.904167
+anchor_bottom = 0.359568
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 100
+text = "GAME 3D PLATFORMER
+GAME PLATFORM 3D PLAY"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Panel/Play" to="." method="_on_play_pressed"]

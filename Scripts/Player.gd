@@ -1,6 +1,8 @@
 extends CharacterBody3D
 class_name CPlayer
 
+
+@export var hp_label : Label
 const SPEED = 8
 const JUMP_VELOCITY = 25
 @export var springarm : SpringArm3D
@@ -8,6 +10,7 @@ const JUMP_VELOCITY = 25
 var max_health = 5
 var health = 0
 var damaged = true
+var heal = true
 var time_in_air = 1.0
 #var checkpoint = Vector3.ZERO
 #var start_pos = Vector3.ZERO
@@ -21,16 +24,26 @@ func _ready():
 	#start_pos = global_position
 	#checkpoint = global_position
 	add_to_group("Player")
+	#hp_label.text = str(health)
 
 func take_damage(damage_amount: int):
 	if damaged:
 		health = health - damage_amount
+		hp_label.text = "health: " + str(health)
 		print(health)
 		if health <= 0:
 			await get_tree().process_frame
 			die()
 		if health > 0:
 			iframes()
+
+func heal_up(heal_amount: int):
+	if heal:
+		health = health + heal_amount
+		if health > max_health:
+			health = max_health
+		hp_label.text = "health: " + str(health)
+		print(health)
 
 func die():
 	await get_tree().process_frame

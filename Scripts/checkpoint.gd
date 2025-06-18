@@ -8,5 +8,5 @@ func _on_body_entered(body: Node3D) -> void:
 	if body is CPlayer:
 		if c == false:
 			body.death_pos = position
-			body.heal_up(1)
+			body.heal_up(2)
 			c = true

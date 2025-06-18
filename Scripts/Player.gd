@@ -4,7 +4,7 @@ class_name CPlayer
 
 @export var hp_label : Label
 const SPEED = 8
-const JUMP_VELOCITY = 25
+const JUMP_VELOCITY = 15
 @export var springarm : SpringArm3D
 @export var camera : Camera3D
 var max_health = 5
@@ -14,7 +14,7 @@ var heal = true
 var time_in_air = 1.0
 #var checkpoint = Vector3.ZERO
 #var start_pos = Vector3.ZERO
-var death_pos = Vector3(0, 2, 0)
+var death_pos = Vector3()
 var return_back = false
 
 
@@ -29,8 +29,7 @@ func _ready():
 func take_damage(damage_amount: int):
 	if damaged:
 		health = health - damage_amount
-		hp_label.text = "health: " + str(health)
-		print(health)
+		hp_label.text = "Health: " + str(health)
 		if health <= 0:
 			await get_tree().process_frame
 			die()
@@ -42,8 +41,7 @@ func heal_up(heal_amount: int):
 		health = health + heal_amount
 		if health > max_health:
 			health = max_health
-		hp_label.text = "health: " + str(health)
-		print(health)
+		hp_label.text = "Health: " + str(health)
 
 func die():
 	await get_tree().process_frame
@@ -58,7 +56,6 @@ func iframes():
 
 func return_to_checkpoint():
 	position = death_pos
-	pass
 
 #func set_checkpoint(position):
 	#checkpoint = position
@@ -70,6 +67,9 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("jump") and is_on_floor() || Input.is_action_pressed("jump") and time_in_air < .2:
 		velocity.y = JUMP_VELOCITY
+
+	if Input.is_action_just_pressed("jump") and is_on_floor() and Input.is_action_pressed("sprint")|| Input.is_action_pressed("jump") and time_in_air < .2 and Input.is_action_pressed("sprint"):
+		velocity.y = JUMP_VELOCITY + 10
 
 	var was_on_floor = is_on_floor()
 	
@@ -87,8 +87,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = corrected_dir.x * SPEED
 		velocity.z = corrected_dir.z * SPEED
 		if Input.is_action_pressed("sprint"):
-			velocity.x *= 4
-			velocity.z *= 4
+			velocity.x *= 3
+			velocity.z *= 3
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)

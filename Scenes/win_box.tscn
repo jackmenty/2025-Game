@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsal78eyxj5j1"]
+
+[ext_resource type="Script" uid="uid://cbgh4owyq40t3" path="res://Scripts/win_box.gd" id="1_hge5r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hge5r"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.305521, 0.919143, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jn7qp"]
+
+[node name="Win_box" type="Node3D"]
+script = ExtResource("1_hge5r")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+material_override = SubResource("StandardMaterial3D_hge5r")
+
+[node name="Area3D" type="Area3D" parent="CSGBox3D"]
+collision_layer = 7
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/Area3D"]
+shape = SubResource("BoxShape3D_jn7qp")
+
+[connection signal="body_entered" from="CSGBox3D/Area3D" to="." method="_on_area_3d_body_entered"]

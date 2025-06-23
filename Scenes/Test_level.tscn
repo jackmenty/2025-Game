@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cq25k3h20sq30"]
+[gd_scene load_steps=6 format=3 uid="uid://cq25k3h20sq30"]
 
 [ext_resource type="PackedScene" uid="uid://bt1sm4q10r8i4" path="res://Scenes/Die_box.tscn" id="1_rbrd7"]
 [ext_resource type="PackedScene" uid="uid://dqfrll158h75v" path="res://Scenes/Player.tscn" id="1_tfsjm"]
 [ext_resource type="PackedScene" uid="uid://mkr64ivjykh6" path="res://Scenes/Damage_box.tscn" id="3_rbrd7"]
 [ext_resource type="PackedScene" uid="uid://b64xgj4fgraw" path="res://Scenes/Checkpoint.tscn" id="4_mrgul"]
+[ext_resource type="PackedScene" uid="uid://bsal78eyxj5j1" path="res://Scenes/win_box.tscn" id="5_wssyp"]
 
 [node name="Level" type="Node3D"]
 
@@ -109,9 +110,6 @@ size = Vector3(6.33838, 9.05326, 182.329)
 [node name="Damage_box3" parent="." instance=ExtResource("3_rbrd7")]
 transform = Transform3D(35.2574, 0, 0, 0, 15.4492, 0, 0, 0, 2.79121, 102.893, -22.2504, 316.753)
 
-[node name="Checkpoint2" parent="." instance=ExtResource("4_mrgul")]
-transform = Transform3D(4.69175, 0, 0, 0, 4.69175, 0, 0, 0, 4.69175, 13.4784, -8.79014, 448.341)
-
 [node name="CSGBox3D15" type="CSGBox3D" parent="."]
 transform = Transform3D(-7.24369e-09, -2.05476, 0, 0.165716, -8.98162e-08, 0, 0, 0, 0.627119, 14.5532, -13.228, 451.622)
 use_collision = true
@@ -170,3 +168,32 @@ size = Vector3(6.33838, 37.0361, 17.5156)
 
 [node name="Damage_box6" parent="." instance=ExtResource("3_rbrd7")]
 transform = Transform3D(-2.18218e-07, -0.616157, 0, 4.99224, -2.69331e-08, 0, 0, 0, 13.4401, -90.4258, 38.4086, 280.329)
+
+[node name="Damage_box7" parent="." instance=ExtResource("3_rbrd7")]
+transform = Transform3D(-7.95667e-08, -12.4751, -13.1669, 2.14643, -6.43009e-07, 0, -4.97188e-08, -7.79529, 21.0715, 100.627, -24.1729, 339.394)
+
+[node name="Damage_box8" parent="." instance=ExtResource("3_rbrd7")]
+transform = Transform3D(-7.95667e-08, -16.4629, -11.1195, 2.14643, -8.48557e-07, 0, -4.97188e-08, -10.2872, 17.7949, 82.7081, -24.1729, 357.964)
+
+[node name="Damage_box9" parent="." instance=ExtResource("3_rbrd7")]
+transform = Transform3D(-7.93498e-08, -11.0098, -16.4967, 2.14058, -5.67484e-07, 0, -4.95833e-08, -6.87969, 26.4003, 75.3639, -24.1729, 386.864)
+
+[node name="Damage_box10" parent="." instance=ExtResource("3_rbrd7")]
+transform = Transform3D(-7.95667e-08, -9.30816, -14.819, 2.14643, -4.79776e-07, 0, -4.97188e-08, -5.81639, 23.7154, 62.4875, -24.1729, 379.425)
+
+[node name="Damage_box11" parent="." instance=ExtResource("3_rbrd7")]
+transform = Transform3D(-7.95667e-08, -20.918, -12.1984, 2.14643, -1.07819e-06, 0, -4.97188e-08, -13.071, 19.5215, 50.5649, -24.1729, 405.177)
+
+[node name="Damage_box12" parent="." instance=ExtResource("3_rbrd7")]
+transform = Transform3D(-7.95667e-08, -31.5281, -50.7315, 2.14643, -1.62507e-06, 0, -4.97188e-08, -19.7009, 81.1874, 75.0693, -12.648, 372.436)
+
+[node name="Win_box" parent="." instance=ExtResource("5_wssyp")]
+transform = Transform3D(22.7, 0, 0, 0, 22.7, 0, 0, 0, 22.7, 19, -3, 465)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+transform = Transform3D(5.0781, 0, 0, 0, 5.0781, 0, 0, 0, 5.0781, 21.5282, 11.8968, 264.47)
+polygon = PackedVector2Array(0.844558, -0.281819, 1.40549, 1.08991, 0.559255, 2.41931, 4.05455, 1.04052)
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="."]
+transform = Transform3D(-5.0781, 0, 4.43941e-07, 0, 5.0781, 0, -4.43941e-07, 0, -5.0781, -20.4763, 11.8968, 261.189)
+polygon = PackedVector2Array(0.844558, -0.281819, 1.40549, 1.08991, 0.559255, 2.41931, 4.05455, 1.04052)

@@ -3,7 +3,7 @@ class_name CPlayer
 
 
 @export var hp_label : Label
-const SPEED = 8
+const SPEED = 12
 const JUMP_VELOCITY = 15
 @export var springarm : SpringArm3D
 @export var camera : Camera3D

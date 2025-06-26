@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://cq25k3h20sq30"]
+[gd_scene load_steps=7 format=3 uid="uid://cq25k3h20sq30"]
 
 [ext_resource type="PackedScene" uid="uid://bt1sm4q10r8i4" path="res://Scenes/Die_box.tscn" id="1_rbrd7"]
 [ext_resource type="PackedScene" uid="uid://dqfrll158h75v" path="res://Scenes/Player.tscn" id="1_tfsjm"]
 [ext_resource type="PackedScene" uid="uid://mkr64ivjykh6" path="res://Scenes/Damage_box.tscn" id="3_rbrd7"]
 [ext_resource type="PackedScene" uid="uid://b64xgj4fgraw" path="res://Scenes/Checkpoint.tscn" id="4_mrgul"]
 [ext_resource type="PackedScene" uid="uid://bsal78eyxj5j1" path="res://Scenes/win_box.tscn" id="5_wssyp"]
+
+[sub_resource type="Environment" id="Environment_wssyp"]
+tonemap_mode = 4
 
 [node name="Level" type="Node3D"]
 
@@ -21,7 +24,11 @@ size = Vector3(189.961, 1, 179.152)
 [node name="Player" parent="." instance=ExtResource("1_tfsjm")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.931894, 0.362731, 0, -0.362731, 0.931894, 0, 15.0978, 41.5467)
+transform = Transform3D(0.508726, -0.822262, 0.255114, 0, 0.296325, 0.955087, -0.860929, -0.485878, 0.150748, 0, 15.0978, 41.5467)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wssyp")
 
 [node name="Damage_box" parent="." instance=ExtResource("3_rbrd7")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 7.71301, -1.71084, 14.6632)
@@ -40,7 +47,7 @@ use_collision = true
 size = Vector3(6.33838, 113.341, 30)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="."]
-transform = Transform3D(5.12207e-09, 2.18999e-08, 0.62712, 0.117179, -0.501011, 0, 0.117179, 0.501011, -2.74123e-08, 1.75885, 18.4339, -57.0592)
+transform = Transform3D(5.21067e-09, 2.15143e-08, 0.62712, 0.115116, -0.509678, 0, 0.119206, 0.492191, -2.74123e-08, 1.75885, 18.4339, -57.0592)
 use_collision = true
 size = Vector3(6.33838, 113.341, 30)
 

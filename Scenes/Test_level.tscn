@@ -1,15 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://cq25k3h20sq30"]
+[gd_scene load_steps=9 format=3 uid="uid://cq25k3h20sq30"]
 
 [ext_resource type="PackedScene" uid="uid://bt1sm4q10r8i4" path="res://Scenes/Die_box.tscn" id="1_rbrd7"]
 [ext_resource type="PackedScene" uid="uid://dqfrll158h75v" path="res://Scenes/Player.tscn" id="1_tfsjm"]
 [ext_resource type="PackedScene" uid="uid://mkr64ivjykh6" path="res://Scenes/Damage_box.tscn" id="3_rbrd7"]
 [ext_resource type="PackedScene" uid="uid://b64xgj4fgraw" path="res://Scenes/Checkpoint.tscn" id="4_mrgul"]
 [ext_resource type="PackedScene" uid="uid://bsal78eyxj5j1" path="res://Scenes/win_box.tscn" id="5_wssyp"]
+[ext_resource type="PackedScene" uid="uid://h48ned3fpep" path="res://Scenes/moving_platform.tscn" id="6_ffya3"]
 
 [sub_resource type="Environment" id="Environment_wssyp"]
 tonemap_mode = 4
 
+[sub_resource type="Curve3D" id="Curve3D_ffya3"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 11.6306, -2.22061, -1.40138, 0, 0, 0, 0, 0, 0, -0.352833, -2.22061, -1.31128),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
 [node name="Level" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.44116, 0)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8308, 3.52191, 0)
@@ -204,3 +214,7 @@ polygon = PackedVector2Array(0.844558, -0.281819, 1.40549, 1.08991, 0.559255, 2.
 [node name="CSGPolygon3D2" type="CSGPolygon3D" parent="."]
 transform = Transform3D(-5.0781, 0, 4.43941e-07, 0, 5.0781, 0, -4.43941e-07, 0, -5.0781, -20.4763, 11.8968, 261.189)
 polygon = PackedVector2Array(0.844558, -0.281819, 1.40549, 1.08991, 0.559255, 2.41931, 4.05455, 1.04052)
+
+[node name="Moving_Platform" parent="." instance=ExtResource("6_ffya3")]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -28.2713, 6.72626, 27.5311)
+curve = SubResource("Curve3D_ffya3")

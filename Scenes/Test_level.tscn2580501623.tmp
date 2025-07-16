@@ -241,7 +241,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -52.131, 8.29764, 49.4187)
 curve = SubResource("Curve3D_bsmh7")
 
 [node name="Wave" parent="." instance=ExtResource("7_bsmh7")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 182.23, 20.0936, -13.5327)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 94.8433, 20.0936, -13.5327)
 
 [node name="Moving_Platform3" parent="." instance=ExtResource("6_ffya3")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 79.2004, -2.87148, 91.7526)

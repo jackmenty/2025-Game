@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cq25k3h20sq30"]
+[gd_scene load_steps=10 format=3 uid="uid://cq25k3h20sq30"]
 
 [ext_resource type="PackedScene" uid="uid://bt1sm4q10r8i4" path="res://Scenes/Die_box.tscn" id="1_rbrd7"]
 [ext_resource type="PackedScene" uid="uid://dqfrll158h75v" path="res://Scenes/Player.tscn" id="1_tfsjm"]
@@ -14,6 +14,14 @@ tonemap_mode = 4
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 11.6306, -2.22061, -1.40138, 0, 0, 0, 0, 0, 0, -0.352833, -2.22061, -1.31128),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_bsmh7"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.0010376, -2.22058, 0.139896, 0, 0, 0, 0, 0, 0, -0.429527, -2.22058, -55.188),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -218,3 +226,7 @@ polygon = PackedVector2Array(0.844558, -0.281819, 1.40549, 1.08991, 0.559255, 2.
 [node name="Moving_Platform" parent="." instance=ExtResource("6_ffya3")]
 transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -28.2713, 6.72626, 27.5311)
 curve = SubResource("Curve3D_ffya3")
+
+[node name="Moving_Platform2" parent="." instance=ExtResource("6_ffya3")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -52.131, 8.29764, 49.4187)
+curve = SubResource("Curve3D_bsmh7")

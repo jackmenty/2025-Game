@@ -55,13 +55,13 @@ _data = {
 curve = SubResource("Curve3D_k8ij1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="."]
-transform = Transform3D(-0.610457, 0, 0.792049, 0, 1, 0, -0.792049, 0, -0.610457, 0.221939, -2.2206, -0.510937)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.61525, -2.26736, -0.233673)
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="PathFollow3D"]
 remote_path = NodePath("../../Area3D")
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(-0.610457, 0, 0.792049, 0, 1, 0, -0.792049, 0, -0.610457, 0.221939, -2.2206, -0.510937)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.61525, -2.26736, -0.233673)
 collision_layer = 7
 collision_mask = 3
 script = ExtResource("1_y54vu")

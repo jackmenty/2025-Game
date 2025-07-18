@@ -1,15 +1,25 @@
-[gd_scene load_steps=12 format=3 uid="uid://cq25k3h20sq30"]
+[gd_scene load_steps=16 format=3 uid="uid://cq25k3h20sq30"]
 
 [ext_resource type="PackedScene" uid="uid://bt1sm4q10r8i4" path="res://Scenes/Die_box.tscn" id="1_rbrd7"]
 [ext_resource type="PackedScene" uid="uid://dqfrll158h75v" path="res://Scenes/Player.tscn" id="1_tfsjm"]
 [ext_resource type="PackedScene" uid="uid://mkr64ivjykh6" path="res://Scenes/Damage_box.tscn" id="3_rbrd7"]
+[ext_resource type="Texture2D" uid="uid://dvwm0nggaov0h" path="res://Models/textures/mud_cracked_dry_03_diff_2k.jpg" id="3_tan1m"]
+[ext_resource type="Texture2D" uid="uid://b0h2svktlnnh8" path="res://Models/textures/mud_cracked_dry_03_nor_gl_2k.jpg" id="4_5i3o1"]
 [ext_resource type="PackedScene" uid="uid://b64xgj4fgraw" path="res://Scenes/Checkpoint.tscn" id="4_mrgul"]
+[ext_resource type="Texture2D" uid="uid://7uqgsjiaah26" path="res://Models/textures/mud_cracked_dry_03_disp_2k.png" id="5_ai3ph"]
 [ext_resource type="PackedScene" uid="uid://bsal78eyxj5j1" path="res://Scenes/win_box.tscn" id="5_wssyp"]
 [ext_resource type="PackedScene" uid="uid://h48ned3fpep" path="res://Scenes/moving_platform.tscn" id="6_ffya3"]
 [ext_resource type="PackedScene" uid="uid://bx1prv8ophx1e" path="res://Scenes/Wave.tscn" id="7_bsmh7"]
 
 [sub_resource type="Environment" id="Environment_wssyp"]
 tonemap_mode = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u104y"]
+albedo_texture = ExtResource("3_tan1m")
+roughness_texture = ExtResource("5_ai3ph")
+normal_enabled = true
+normal_texture = ExtResource("4_5i3o1")
+uv1_scale = Vector3(10, 2, 5)
 
 [sub_resource type="Curve3D" id="Curve3D_ffya3"]
 resource_local_to_scene = true
@@ -82,6 +92,7 @@ size = Vector3(6.33838, 113.341, 30)
 transform = Transform3D(4.66318e-09, 2.37e-08, 0.62712, 0.136637, -0.400908, -2.68116e-09, 0.0937665, 0.584207, -2.72808e-08, 56.7932, 17.0916, -55.1032)
 use_collision = true
 size = Vector3(6.33838, 120.037, 30)
+material = SubResource("StandardMaterial3D_u104y")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="."]
 transform = Transform3D(-0.0341234, -0.693353, 0, 0.162165, -0.145898, 0, 0, 0, 0.62712, 63.5337, 6.39888, 51.6767)

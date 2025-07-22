@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cskdfptsugtmu"
-path="res://.godot/imported/mud_cracked_dry_03_2k.blend-4dd4dbbd3cb2e961a7ef7ceef1136278.scn"
+path="res://.godot/imported/mud_cracked_dry_03_2k.blend-fbc3a74c8b76f96d9295a37a09ab3d20.scn"
 
 [deps]
 
-source_file="res://Models/mud_cracked_dry_03_2k.blend"
-dest_files=["res://.godot/imported/mud_cracked_dry_03_2k.blend-4dd4dbbd3cb2e961a7ef7ceef1136278.scn"]
+source_file="res://Models/textures/mud_cracked_dry_03_2k.blend"
+dest_files=["res://.godot/imported/mud_cracked_dry_03_2k.blend-fbc3a74c8b76f96d9295a37a09ab3d20.scn"]
 
 [params]
 

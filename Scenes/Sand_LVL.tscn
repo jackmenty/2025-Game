@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://chhbb7nq4aql6"]
 
 [ext_resource type="PackedScene" uid="uid://dqfrll158h75v" path="res://Scenes/Player.tscn" id="2_adg2i"]
-[ext_resource type="PackedScene" uid="uid://b7yiycicq2ags" path="res://Models/LVL1/lvl_1.tscn" id="2_ttc8q"]
+[ext_resource type="PackedScene" uid="uid://b7yiycicq2ags" path="res://Models/LVLs/lvl_1.tscn" id="2_ttc8q"]
 
 [node name="Sand_LVL" type="Node3D"]
 

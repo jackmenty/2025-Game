@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://csyc5ribpv0ep"
-path="res://.godot/imported/LVL1.glb-bf50e0422799637dd985235720b7b0aa.scn"
+uid="uid://brlafk0eyf2bl"
+path="res://.godot/imported/LVL2.glb-65e58b897f4f45efcceacb2a11015df5.scn"
 
 [deps]
 
-source_file="res://Models/LVL1/LVL1.glb"
-dest_files=["res://.godot/imported/LVL1.glb-bf50e0422799637dd985235720b7b0aa.scn"]
+source_file="res://Models/LVLs/LVL2.glb"
+dest_files=["res://.godot/imported/LVL2.glb-65e58b897f4f45efcceacb2a11015df5.scn"]
 
 [params]
 
@@ -26,18 +26,12 @@ meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
-animation/import=false
+animation/import=true
 animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"nodes": {
-"PATH:Cube_002": {
-"mesh_instance/layers": 7
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

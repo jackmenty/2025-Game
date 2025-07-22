@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cq25k3h20sq30"]
+[gd_scene load_steps=15 format=3 uid="uid://cq25k3h20sq30"]
 
 [ext_resource type="PackedScene" uid="uid://bt1sm4q10r8i4" path="res://Scenes/Die_box.tscn" id="1_rbrd7"]
 [ext_resource type="PackedScene" uid="uid://dqfrll158h75v" path="res://Scenes/Player.tscn" id="1_tfsjm"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://7uqgsjiaah26" path="res://Models/textures/mud_cracked_dry_03_disp_2k.png" id="5_ai3ph"]
 [ext_resource type="PackedScene" uid="uid://bsal78eyxj5j1" path="res://Scenes/win_box.tscn" id="5_wssyp"]
 [ext_resource type="PackedScene" uid="uid://h48ned3fpep" path="res://Scenes/moving_platform.tscn" id="6_ffya3"]
-[ext_resource type="PackedScene" uid="uid://bx1prv8ophx1e" path="res://Scenes/Wave.tscn" id="7_bsmh7"]
 
 [sub_resource type="Environment" id="Environment_wssyp"]
 tonemap_mode = 4
@@ -110,7 +109,7 @@ use_collision = true
 size = Vector3(6.33838, 48.5695, 30)
 
 [node name="DieBox" parent="." instance=ExtResource("1_rbrd7")]
-transform = Transform3D(510.011, 0, 0, 0, 4.05553, 0, 0, 0, 529.734, 0.613417, -19.8328, -17.9019)
+transform = Transform3D(510.011, 0, 0, 0, 4.05553, 0, 0, 0, 529.734, 0.613417, -19.8328, -18.2832)
 
 [node name="Checkpoint" parent="." instance=ExtResource("4_mrgul")]
 transform = Transform3D(3.2511, 0, 0, 0, 3.2511, 0, 0, 0, 3.2511, 0, 0.0338826, 59.4915)
@@ -250,9 +249,6 @@ curve = SubResource("Curve3D_ffya3")
 [node name="Moving_Platform2" parent="." instance=ExtResource("6_ffya3")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -52.131, 8.29764, 49.4187)
 curve = SubResource("Curve3D_bsmh7")
-
-[node name="Wave" parent="." instance=ExtResource("7_bsmh7")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 182.23, 20.0936, -13.5327)
 
 [node name="Moving_Platform3" parent="." instance=ExtResource("6_ffya3")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 79.2004, -2.87148, 91.7526)

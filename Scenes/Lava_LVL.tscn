@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dunyhss6mi873"]
+
+[ext_resource type="PackedScene" uid="uid://duwpatekoqau7" path="res://Models/LVLs/lvl_2.tscn" id="1_7r7uv"]
+
+[node name="Lava_Lvl" type="Node3D"]
+
+[node name="LVL2" parent="." instance=ExtResource("1_7r7uv")]

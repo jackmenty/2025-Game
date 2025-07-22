@@ -1,17 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://bx1prv8ophx1e"]
 
 [ext_resource type="Script" uid="uid://c5dbu8ycv6vsx" path="res://Scripts/wave.gd" id="1_y54vu"]
+[ext_resource type="PackedScene" uid="uid://ctfkm53arw066" path="res://Models/Wave.glb" id="2_rvxmi"]
 
 [sub_resource type="Curve3D" id="Curve3D_k8ij1"]
-closed = true
-_data = {
-"points": PackedVector3Array(12, 0, 0, -12, 0, 0, -0.61525, -2.26736, -0.233673, 0, 0, -8, 0, 0, 8, -19.1152, -2.26736, 15.2663, -10.3, 0, 0.1, 10.3, 0, -0.1, -0.61525, -2.26736, 32.2663, 0, 0, 8, 0, 0, -8, 16.8848, -2.26736, 16.2663),
-"tilts": PackedFloat32Array(0, 0, 0, 0)
-}
-point_count = 4
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_k8ij1"]
-size = Vector3(7.70874, 5.09595, 1)
 
 [sub_resource type="Animation" id="Animation_y54vu"]
 resource_name = "Coming"
@@ -55,29 +47,28 @@ _data = {
 curve = SubResource("Curve3D_k8ij1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.61525, -2.26736, -0.233673)
+transform = Transform3D(0.999374, 0, -0.0353753, 0, 1, 0, 0.0353753, 0, 0.999374, 0.906754, -4.44116, -0.203104)
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="PathFollow3D"]
 remote_path = NodePath("../../Area3D")
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.61525, -2.26736, -0.233673)
+transform = Transform3D(0.999374, 0, -0.0353753, 0, 1, 0, 0.0353753, 0, 0.999374, 0.906754, -4.44116, -0.203104)
 collision_layer = 7
 collision_mask = 3
 script = ExtResource("1_y54vu")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Area3D"]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
-size = Vector3(7.68921, 5.11157, 1)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
-shape = SubResource("BoxShape3D_k8ij1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Area3D"]
 libraries = {
 &"": SubResource("AnimationLibrary_ddehd")
 }
 autoplay = "Coming"
+
+[node name="Wave" parent="Area3D" instance=ExtResource("2_rvxmi")]
+transform = Transform3D(-5.80502e-08, 0, -2.35423, 0, 2.35423, 0, 1.32803, 0, -1.02907e-07, -0.233673, 2.26736, 0.61525)
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Area3D"]
+transform = Transform3D(-4.37114e-08, 0, -31.1185, 0, 1, 0, 1, 0, -1.36023e-06, 0, 0, 0)
+polygon = PackedVector2Array(-2.61172, 0.0639601, 3.86047, -0.0516148, 1.94193, 4.66384, 2.29784, 7.95769, 3.5083, 10.5987, 4.90216, 11.4423, 4.75544, 12.3594, 2.70133, 11.369, 0.867301, 8.10441, -0.966729, 4.25295)
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

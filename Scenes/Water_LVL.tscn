@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvdfl6pn0g2j3"]
+
+[ext_resource type="PackedScene" uid="uid://bg2gkx16jyw70" path="res://Models/LVLs/lvl_3.tscn" id="1_ssfmj"]
+
+[node name="Water_Lvl" type="Node3D"]
+
+[node name="LVL3" parent="." instance=ExtResource("1_ssfmj")]

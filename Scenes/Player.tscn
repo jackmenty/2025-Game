@@ -11,7 +11,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_677pu"]
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("hp_label", "springarm", "camera")]
-collision_layer = 2
+collision_layer = 6
 axis_lock_angular_y = true
 script = ExtResource("1_0y7nr")
 hp_label = NodePath("HUD/Control/Label")
@@ -19,6 +19,7 @@ springarm = NodePath("SpringArm3D")
 camera = NodePath("SpringArm3D/Camera3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+layers = 3
 mesh = SubResource("CapsuleMesh_jo2ib")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

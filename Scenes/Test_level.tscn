@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cq25k3h20sq30"]
+[gd_scene load_steps=17 format=3 uid="uid://cq25k3h20sq30"]
 
 [ext_resource type="PackedScene" uid="uid://bt1sm4q10r8i4" path="res://Scenes/Die_box.tscn" id="1_rbrd7"]
 [ext_resource type="PackedScene" uid="uid://dqfrll158h75v" path="res://Scenes/Player.tscn" id="1_tfsjm"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://7uqgsjiaah26" path="res://Models/textures/mud_cracked_dry_03_disp_2k.png" id="5_ai3ph"]
 [ext_resource type="PackedScene" uid="uid://bsal78eyxj5j1" path="res://Scenes/win_box.tscn" id="5_wssyp"]
 [ext_resource type="PackedScene" uid="uid://h48ned3fpep" path="res://Scenes/moving_platform.tscn" id="6_ffya3"]
+[ext_resource type="PackedScene" uid="uid://bx1prv8ophx1e" path="res://Scenes/Wave.tscn" id="10_tan1m"]
 
 [sub_resource type="Environment" id="Environment_wssyp"]
 tonemap_mode = 4
@@ -43,6 +44,15 @@ _data = {
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_tan1m"]
+resource_local_to_scene = true
+closed = true
+_data = {
+"points": PackedVector3Array(6.63116, -9.53674e-07, -7.63947, -6.63116, 9.53674e-07, 7.63947, -0.978912, -4.4411, 0.704309, -7.63445, 0, -3.35453, 7.63445, 0, 3.35453, 1.75656, -4.4411, 47.7955, -5.30426, -9.53674e-07, 7.39217, 5.30426, 9.53674e-07, -7.39217, 32.3933, -4.4411, 42.1384, 9.63143, 0, 10.6068, -9.63143, 0, -10.6068, 42.753, -4.59084, -10.0232),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
 
 [node name="Level" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.44116, 0)
@@ -253,3 +263,7 @@ curve = SubResource("Curve3D_bsmh7")
 [node name="Moving_Platform3" parent="." instance=ExtResource("6_ffya3")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 79.2004, -2.87148, 91.7526)
 curve = SubResource("Curve3D_sm5oe")
+
+[node name="Wave" parent="." instance=ExtResource("10_tan1m")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 108.741, -0.668639, -7.93048)
+curve = SubResource("Curve3D_tan1m")

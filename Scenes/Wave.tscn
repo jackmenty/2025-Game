@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ctfkm53arw066" path="res://Models/Wave.glb" id="2_rvxmi"]
 
 [sub_resource type="Curve3D" id="Curve3D_k8ij1"]
+resource_local_to_scene = true
 
 [sub_resource type="Animation" id="Animation_y54vu"]
 resource_name = "Coming"
@@ -47,13 +48,11 @@ _data = {
 curve = SubResource("Curve3D_k8ij1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="."]
-transform = Transform3D(0.999374, 0, -0.0353753, 0, 1, 0, 0.0353753, 0, 0.999374, 0.906754, -4.44116, -0.203104)
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="PathFollow3D"]
 remote_path = NodePath("../../Area3D")
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(0.999374, 0, -0.0353753, 0, 1, 0, 0.0353753, 0, 0.999374, 0.906754, -4.44116, -0.203104)
 collision_layer = 7
 collision_mask = 3
 script = ExtResource("1_y54vu")
@@ -65,10 +64,10 @@ libraries = {
 autoplay = "Coming"
 
 [node name="Wave" parent="Area3D" instance=ExtResource("2_rvxmi")]
-transform = Transform3D(-5.80502e-08, 0, -2.35423, 0, 2.35423, 0, 1.32803, 0, -1.02907e-07, -0.233673, 2.26736, 0.61525)
+transform = Transform3D(-5.805e-08, 0, 2.35423, 0, 2.35423, 0, -1.32803, 0, -1.02907e-07, 0, 0, 0)
 
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Area3D"]
-transform = Transform3D(-4.37114e-08, 0, -31.1185, 0, 1, 0, 1, 0, -1.36023e-06, 0, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, 31.1185, 0, 1, 0, -1, 0, -1.36023e-06, 0, -2.49394, -0.554211)
 polygon = PackedVector2Array(-2.61172, 0.0639601, 3.86047, -0.0516148, 1.94193, 4.66384, 2.29784, 7.95769, 3.5083, 10.5987, 4.90216, 11.4423, 4.75544, 12.3594, 2.70133, 11.369, 0.867301, 8.10441, -0.966729, 4.25295)
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

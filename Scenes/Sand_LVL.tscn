@@ -1,7 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://chhbb7nq4aql6"]
+[gd_scene load_steps=6 format=3 uid="uid://chhbb7nq4aql6"]
 
 [ext_resource type="PackedScene" uid="uid://dqfrll158h75v" path="res://Scenes/Player.tscn" id="2_adg2i"]
 [ext_resource type="PackedScene" uid="uid://b7yiycicq2ags" path="res://Models/LVLs/lvl_1.tscn" id="2_ttc8q"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_adg2i"]
+sky_top_color = Color(0.983586, 0.891391, 0.246766, 1)
+sky_horizon_color = Color(0.662625, 0.386704, 0.00789142, 1)
+ground_bottom_color = Color(0.207487, 0.111494, 1.20327e-08, 1)
+ground_horizon_color = Color(0.60656, 0.382248, 0.0827754, 1)
+
+[sub_resource type="Sky" id="Sky_5i3o1"]
+sky_material = SubResource("ProceduralSkyMaterial_adg2i")
+
+[sub_resource type="Environment" id="Environment_ttc8q"]
+background_mode = 2
+sky = SubResource("Sky_5i3o1")
+tonemap_mode = 4
+ssr_enabled = true
 
 [node name="Sand_LVL" type="Node3D"]
 
@@ -9,3 +24,6 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 45.658, 0)
 
 [node name="LVL1" parent="." instance=ExtResource("2_ttc8q")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ttc8q")

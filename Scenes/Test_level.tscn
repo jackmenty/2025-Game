@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cq25k3h20sq30"]
+[gd_scene load_steps=16 format=3 uid="uid://cq25k3h20sq30"]
 
 [ext_resource type="PackedScene" uid="uid://bt1sm4q10r8i4" path="res://Scenes/Die_box.tscn" id="1_rbrd7"]
 [ext_resource type="PackedScene" uid="uid://dqfrll158h75v" path="res://Scenes/Player.tscn" id="1_tfsjm"]
@@ -10,21 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://bsal78eyxj5j1" path="res://Scenes/win_box.tscn" id="5_wssyp"]
 [ext_resource type="PackedScene" uid="uid://h48ned3fpep" path="res://Scenes/moving_platform.tscn" id="6_ffya3"]
 [ext_resource type="PackedScene" uid="uid://bx1prv8ophx1e" path="res://Scenes/Wave.tscn" id="10_tan1m"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tan1m"]
-sky_top_color = Color(0.983586, 0.891391, 0.246766, 1)
-sky_horizon_color = Color(0.662625, 0.386704, 0.00789142, 1)
-ground_bottom_color = Color(0.207487, 0.111494, 1.20327e-08, 1)
-ground_horizon_color = Color(0.60656, 0.382248, 0.0827754, 1)
-
-[sub_resource type="Sky" id="Sky_tan1m"]
-sky_material = SubResource("ProceduralSkyMaterial_tan1m")
-
-[sub_resource type="Environment" id="Environment_wssyp"]
-background_mode = 2
-sky = SubResource("Sky_tan1m")
-tonemap_mode = 4
-ssr_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u104y"]
 albedo_texture = ExtResource("3_tan1m")
@@ -84,9 +69,6 @@ size = Vector3(189.961, 1, 179.152)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.508726, -0.822262, 0.255114, 0, 0.296325, 0.955087, -0.860929, -0.485878, 0.150748, 0, 15.0978, 41.5467)
 shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_wssyp")
 
 [node name="Damage_box" parent="." instance=ExtResource("3_rbrd7")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 7.71301, -1.71084, 14.6632)

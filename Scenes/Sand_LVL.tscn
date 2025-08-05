@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://chhbb7nq4aql6"]
+[gd_scene load_steps=7 format=3 uid="uid://chhbb7nq4aql6"]
 
+[ext_resource type="PackedScene" uid="uid://clj2ighxx0uiu" path="res://Models/LVLs/lvl_1_terrain.tscn" id="1_ttc8q"]
 [ext_resource type="PackedScene" uid="uid://dqfrll158h75v" path="res://Scenes/Player.tscn" id="2_adg2i"]
 [ext_resource type="PackedScene" uid="uid://b7yiycicq2ags" path="res://Models/LVLs/lvl_1.tscn" id="2_ttc8q"]
 
@@ -19,6 +20,9 @@ tonemap_mode = 4
 ssr_enabled = true
 
 [node name="Sand_LVL" type="Node3D"]
+
+[node name="LVL1_Terrain" parent="." instance=ExtResource("1_ttc8q")]
+transform = Transform3D(55, 0, 0, 0, 55, 0, 0, 0, 55, 0, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_adg2i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 45.658, 0)

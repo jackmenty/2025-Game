@@ -21,7 +21,7 @@ uv1_scale = Vector3(10, 2, 5)
 [sub_resource type="Curve3D" id="Curve3D_ffya3"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 11.6306, -2.22061, -1.40138, 0, 0, 0, 0, 0, 0, -0.352833, -2.22061, -1.31128),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 11.6306, -2.22061, -1.40138, 0, 0, 0, 0, 0, 0, -0.352833, 2.72819, -1.31128),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2

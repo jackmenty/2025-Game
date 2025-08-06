@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://chhbb7nq4aql6"]
+[gd_scene load_steps=51 format=4 uid="uid://chhbb7nq4aql6"]
 
 [ext_resource type="PackedScene" uid="uid://clj2ighxx0uiu" path="res://Models/LVLs/lvl_1_terrain.tscn" id="1_ttc8q"]
 [ext_resource type="PackedScene" uid="uid://dqfrll158h75v" path="res://Scenes/Player.tscn" id="2_adg2i"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cpg162sc6f2sh" path="res://Models/TOWER1.glb" id="5_h12wy"]
 [ext_resource type="PackedScene" uid="uid://d0j8vq2hjfnvh" path="res://Scenes/Moving platforms/Moving_sand.tscn" id="5_i4myj"]
 [ext_resource type="PackedScene" uid="uid://b64xgj4fgraw" path="res://Scenes/Checkpoint.tscn" id="6_h12wy"]
+[ext_resource type="PackedScene" uid="uid://cacois4ecnj52" path="res://Scenes/Moving platforms/Moving_sand_loop.tscn" id="7_bu55e"]
+[ext_resource type="PackedScene" uid="uid://t5n7yyijyxi4" path="res://Scenes/Moving platforms/moving_sand_long.tscn" id="8_ndt6w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2xwn"]
 resource_name = "SAND"
@@ -655,7 +657,7 @@ point_count = 2
 [sub_resource type="Curve3D" id="Curve3D_h12wy"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 12.1244, -4.57764e-05, 19.6776, 0, 0, 0, 0, 0, 0, -28.0436, -4.57764e-05, 17.2159),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 12.1244, -4.57764e-05, 19.6776, 0, 0, 0, 0, 0, 0, -59.5014, -4.57764e-05, 17.2159),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -663,14 +665,49 @@ point_count = 2
 [sub_resource type="Curve3D" id="Curve3D_bu55e"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -43.3267, -1.95503e-05, -21.8233, 0, 0, 0, 0, 0, 0, 14.2485, -1.95503e-05, -19.697),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -52.8, -1.95503e-05, -23.9709, 0, 0, 0, 0, 0, 0, 21.043, -1.95503e-05, -18.1567),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
 
+[sub_resource type="Curve3D" id="Curve3D_ndt6w"]
+resource_local_to_scene = true
+closed = true
+_data = {
+"points": PackedVector3Array(13.8459, 0, 0.184616, -13.8459, 0, -0.184616, -18.386, 2.28882e-05, -24.4671, 0.369217, 0, -9.96902, -0.369217, 0, 9.96902, -39.8009, 2.28882e-05, -4.71362, -12.1844, 0, -0.553833, 12.1844, 0, 0.553833, -18.5706, 2.28882e-05, 18.3628, 0, 0, 11.9998, 0, 0, -11.9998, 4.69048, 2.28882e-05, -3.05212),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_2cyv4"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -61.3883, -1.52588e-05, -1.85834, 0, 0, 0, 0, 0, 0, 65.3437, 11.523, -1.74205),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_2p02f"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(-1.08299, 0, -21.2268, 1.08299, 0, 21.2268, -52.9156, 4.00543e-05, -25.3997, -19.2774, 0, 2.166, 19.2774, 0, -2.166, -8.62509, 10.9143, 0.159164),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_11o5i"]
+resource_local_to_scene = true
+closed = true
+_data = {
+"points": PackedVector3Array(-2.41553, 0, 15.6079, 2.41553, 0, -15.6079, -25.581, -4.95911e-05, -27.5643, -14.8647, 0, -3.15875, 14.8647, 0, 3.15875, 12.5098, -4.95911e-05, -51.162, 6.3175, 0, -11.7059, -6.3175, 0, 11.7059, 66.2086, -4.95911e-05, -3.22333, 11.5202, 0, 3.34454, -11.5202, 0, -3.34454, 9.35104, -4.95911e-05, 20.9319),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
 [node name="Sand_LVL" type="Node3D"]
 
-[node name="Node" type="Node" parent="."]
+[node name="Node" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -142.808, 19.8854, 505.761)
 
 [node name="Platform_cliff(_1)" type="MeshInstance3D" parent="Node"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5412, 62.5513, -64.0364)
@@ -777,13 +814,13 @@ shape = SubResource("ConvexPolygonShape3D_3qnwu")
 transform = Transform3D(55, 0, 0, 0, 55, 0, 0, 0, 55, 0, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_adg2i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.9258, 3.98969, 1.56466)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -208.08, 22.7258, 146.348)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ttc8q")
 
 [node name="DieBox" parent="." instance=ExtResource("4_i4myj")]
-transform = Transform3D(2411.35, 0, 0, 0, 100, 0, 0, 0, 1646.48, -277.731, -106.553, 53.178)
+transform = Transform3D(2411.35, 0, 0, 0, 100, 0, 0, 0, 1646.48, -277.731, -106.553, 53.3638)
 
 [node name="TOWER1" parent="." instance=ExtResource("5_h12wy")]
 transform = Transform3D(1, 0, 1.73205, 0, 2, 0, -1.73205, 0, 1, -251.802, 153.633, 586.752)
@@ -839,7 +876,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.283, -2.43233, -26.5081)
 curve = SubResource("Curve3D_h12wy")
 
 [node name="Moving_sand3" parent="." instance=ExtResource("5_i4myj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -178.3, -1.3076, 9.69841)
+transform = Transform3D(0.975254, 0, 0.221089, 0, 1, 0, -0.221089, 0, 0.975254, -216.567, -1.3076, 9.69841)
 curve = SubResource("Curve3D_bu55e")
 
 [node name="Platform_ground_long" type="MeshInstance3D" parent="."]
@@ -867,3 +904,126 @@ shape = SubResource("ConvexPolygonShape3D_7xs3j")
 
 [node name="Checkpoint2" parent="." instance=ExtResource("6_h12wy")]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -235.212, -10.3831, 176.157)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.508726, -0.822262, 0.255114, 0, 0.296325, 0.955087, -0.860929, -0.485878, 0.150748, 0, 15.0978, 41.5467)
+shadow_enabled = true
+
+[node name="Platform_ground_long2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.759863, 0, 2.38418e-07, 0, 5, 0, -1.81165e-07, 0, 1, -253.003, -26.1244, 70.6254)
+mesh = SubResource("ArrayMesh_ocqaa")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platform_ground_long2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform_ground_long2/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_2k1ja")
+
+[node name="Platform_cliff_half(_2)" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.78814e-07, 0, -1, 0, 1.48175, 0, 1, 0, 1.78814e-07, -221.914, -34.1189, 91.862)
+mesh = SubResource("ArrayMesh_7s64j")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platform_cliff_half(_2)"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform_cliff_half(_2)/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_c4rhe")
+
+[node name="Platform_cliff_half(_1)" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.8213e-07, 0, 1, 0, 3, 0, -1, 0, -2.8213e-07, -228.372, -15.2495, 54.8717)
+mesh = SubResource("ArrayMesh_oywpp")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platform_cliff_half(_1)"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform_cliff_half(_1)/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_x63vu")
+
+[node name="Platform_cliff(_2)" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.78814e-07, 0, -1, 0, 1.48175, 0, 1, 0, 1.78814e-07, -217.034, -30.624, 135.589)
+mesh = SubResource("ArrayMesh_ap5jq")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platform_cliff(_2)"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform_cliff(_2)/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_y8nqe")
+
+[node name="Platform_cliff_edge" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.78814e-07, 0, -1, 0, 1.48175, 0, 1, 0, 1.78814e-07, -252.829, 2.0161, 44.329)
+mesh = SubResource("ArrayMesh_kaqvj")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platform_cliff_edge"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform_cliff_edge/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_xsvoa")
+
+[node name="Platform_cliff_edge3" type="MeshInstance3D" parent="."]
+transform = Transform3D(9.73536e-08, 0, -0.5, 0, 0.741, 0, 0.5, 0, 9.73536e-08, -251.499, 2.0161, 105.136)
+mesh = SubResource("ArrayMesh_kaqvj")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platform_cliff_edge3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform_cliff_edge3/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_xsvoa")
+
+[node name="Path3D" parent="." instance=ExtResource("7_bu55e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -158.49, -8.27651, 250.756)
+curve = SubResource("Curve3D_ndt6w")
+
+[node name="Platform_cliff_edge4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.866026, 0, -0.5, 0, 1.48175, 0, 0.5, 0, 0.866026, -153.042, -9.93777, 184.242)
+mesh = SubResource("ArrayMesh_kaqvj")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platform_cliff_edge4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform_cliff_edge4/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_xsvoa")
+
+[node name="Moving_sand_long" parent="." instance=ExtResource("8_ndt6w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -237.23, -23.1039, 201.299)
+curve = SubResource("Curve3D_2cyv4")
+
+[node name="Platform_cliff(_2)2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.78814e-07, 0, -1, 0, 1.48175, 0, 1, 0, 1.78814e-07, -203.383, -40.9323, 325.212)
+mesh = SubResource("ArrayMesh_ap5jq")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platform_cliff(_2)2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform_cliff(_2)2/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_y8nqe")
+
+[node name="Platform_cliff_edge5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.00415365, 0, -0.999966, 0, 0.741, 0, 0.499983, 0, -0.00830731, -204.818, 19.1353, 145.996)
+mesh = SubResource("ArrayMesh_kaqvj")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platform_cliff_edge5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform_cliff_edge5/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_xsvoa")
+
+[node name="Moving_sand4" parent="." instance=ExtResource("5_i4myj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -215.785, 1.0771, 146.861)
+curve = SubResource("Curve3D_2p02f")
+
+[node name="Platform_hover_long" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.50116, -0.255072, 2.434, 0, 1.35908, 4.59838, -0.498554, -0.768026, 7.32882, -200.041, 36.8863, 194.34)
+mesh = SubResource("ArrayMesh_5arnr")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platform_hover_long"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform_hover_long/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_o0ml3")
+
+[node name="Checkpoint3" parent="." instance=ExtResource("6_h12wy")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -202.964, 23.3821, 140.126)
+
+[node name="Path3D2" parent="." instance=ExtResource("7_bu55e")]
+transform = Transform3D(0.955803, 0.294007, 0, -0.294007, 0.955803, 0, 0, 0, 1, -195.438, 32.9557, 596.497)
+curve = SubResource("Curve3D_11o5i")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://chhbb7nq4aql6"]
+[gd_scene load_steps=55 format=4 uid="uid://chhbb7nq4aql6"]
 
 [ext_resource type="PackedScene" uid="uid://clj2ighxx0uiu" path="res://Models/LVLs/lvl_1_terrain.tscn" id="1_ttc8q"]
 [ext_resource type="PackedScene" uid="uid://dqfrll158h75v" path="res://Scenes/Player.tscn" id="2_adg2i"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b64xgj4fgraw" path="res://Scenes/Checkpoint.tscn" id="6_h12wy"]
 [ext_resource type="PackedScene" uid="uid://cacois4ecnj52" path="res://Scenes/Moving platforms/Moving_sand_loop.tscn" id="7_bu55e"]
 [ext_resource type="PackedScene" uid="uid://t5n7yyijyxi4" path="res://Scenes/Moving platforms/moving_sand_long.tscn" id="8_ndt6w"]
+[ext_resource type="PackedScene" uid="uid://c0e5jmvjrhgbe" path="res://Scenes/lvl1_boxtscn.tscn" id="9_2cyv4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2xwn"]
 resource_name = "SAND"
@@ -704,6 +705,30 @@ _data = {
 }
 point_count = 4
 
+[sub_resource type="Curve3D" id="Curve3D_u00gb"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 62.252, 4.19617e-05, -9.96298, 23.5679, 0, -20.4669, -23.5679, 0, 20.4669, 1.78168, 4.19617e-05, 0.890656, 0, 0, 0, 0, 0, 0, -7.15131, 4.19617e-05, 76.7888),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_j5vrw"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 43.303, -3.8147e-05, -62.9236, 0, 0, 0, 0, 0, 0, -28.7426, -1.57882, 37.8308),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_jclay"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 37.4086, -3.8147e-05, -45.8375, 0, 0, 0, 0, 0, 0, -28.7426, -1.57882, 32.269),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
 [node name="Sand_LVL" type="Node3D"]
 
 [node name="Node" type="Node3D" parent="."]
@@ -791,7 +816,7 @@ skeleton = NodePath("")
 shape = SubResource("ConvexPolygonShape3D_7xs3j")
 
 [node name="Platform_hover_long" type="MeshInstance3D" parent="Node"]
-transform = Transform3D(1.58178, 0, 0, 0, 1.58178, 0, 0, 0, 3.27026, 19.2378, 71.1962, -34.1879)
+transform = Transform3D(2.52877, 0, -3.33636, 0, 3, 0, 1.61411, 0, 5.22696, -14.3689, -19.1206, 24.6259)
 mesh = SubResource("ArrayMesh_5arnr")
 skeleton = NodePath("")
 
@@ -814,7 +839,7 @@ shape = SubResource("ConvexPolygonShape3D_3qnwu")
 transform = Transform3D(55, 0, 0, 0, 55, 0, 0, 0, 55, 0, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_adg2i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -208.08, 22.7258, 146.348)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -251.66, -28.3172, 439.788)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ttc8q")
@@ -1025,5 +1050,111 @@ shape = SubResource("ConvexPolygonShape3D_o0ml3")
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -202.964, 23.3821, 140.126)
 
 [node name="Path3D2" parent="." instance=ExtResource("7_bu55e")]
-transform = Transform3D(0.955803, 0.294007, 0, -0.294007, 0.955803, 0, 0, 0, 1, -195.438, 32.9557, 596.497)
+transform = Transform3D(0.955803, 0.294007, 0, -0.294007, 0.955803, 0, 0, 0, 1, -195.438, 22.3895, 596.497)
 curve = SubResource("Curve3D_11o5i")
+
+[node name="Platform_cliff(_1)" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.845221, -0.237406, -0.606988, 0.231135, 1.3746, 0, 0.645566, -0.181327, 0.794711, -248.522, -49.3823, 443.363)
+layers = 7
+mesh = SubResource("ArrayMesh_h0o8j")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platform_cliff(_1)"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform_cliff(_1)/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_k3n3h")
+
+[node name="Platform_cliff_long" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.295758, 0, -0.955263, 0, 1.48175, 0, 0.955263, 0, 0.295758, -250.794, -42.4537, 369.66)
+mesh = SubResource("ArrayMesh_qxlhn")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platform_cliff_long"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform_cliff_long/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_lqsad")
+
+[node name="Platform_cliff_long2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.122756, -0.269288, 0.687339, 0.0307863, 1.07375, 0.17238, -0.379451, -4.02853e-08, 0.236346, -214.644, -46.1933, 390.312)
+mesh = SubResource("ArrayMesh_qxlhn")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platform_cliff_long2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform_cliff_long2/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_lqsad")
+
+[node name="Platform_cliff_long3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.295758, 0, -0.955263, 0, 1.48175, 0, 0.955263, 0, 0.295758, -253.478, -42.4537, 377.382)
+mesh = SubResource("ArrayMesh_qxlhn")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platform_cliff_long3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform_cliff_long3/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_lqsad")
+
+[node name="Platform_ground_long3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.48273, -1.09124, -0.569701, 2.28855e-07, 2.8947, -0.368265, 1.75383, -0.922558, -0.481639, -210.236, -43.8503, 495.69)
+mesh = SubResource("ArrayMesh_ocqaa")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platform_ground_long3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform_ground_long3/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_2k1ja")
+
+[node name="Platform_cliff_half(_2)2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.706106, 0, -0.708106, 0, 1.48175, 0, 0.708106, 0, 0.706106, -173.221, -36.3977, 448.671)
+mesh = SubResource("ArrayMesh_7s64j")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platform_cliff_half(_2)2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform_cliff_half(_2)2/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_c4rhe")
+
+[node name="Platform_cliff_half(_1)2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.810318, 0, -0.58599, 0, 1.48175, 0, 0.58599, 0, 0.810318, -237.985, -41.3393, 544.614)
+mesh = SubResource("ArrayMesh_oywpp")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platform_cliff_half(_1)2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform_cliff_half(_1)2/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_x63vu")
+
+[node name="Moving_sand5" parent="." instance=ExtResource("5_i4myj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -246.912, -31.0337, 455.227)
+curve = SubResource("Curve3D_u00gb")
+
+[node name="Moving_sand_long2" parent="." instance=ExtResource("8_ndt6w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -195.67, -28.3396, 520.685)
+curve = SubResource("Curve3D_j5vrw")
+
+[node name="Moving_sand_long3" parent="." instance=ExtResource("8_ndt6w")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -176.364, -4.21388, 494.994)
+curve = SubResource("Curve3D_jclay")
+
+[node name="Platform_cliff_edge6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, -0.523878, 0.612373, -7.65022e-08, 1.28323, 0.5, -0.707107, -0.523878, 0.612372, -210.252, -28.8594, 498.908)
+mesh = SubResource("ArrayMesh_kaqvj")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platform_cliff_edge6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform_cliff_edge6/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_xsvoa")
+
+[node name="Platform_cliff_edge7" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.353553, -0.261983, 0.306186, -3.82511e-08, 0.641725, 0.25, -0.353553, -0.261983, 0.306186, -203.32, -14.2719, 472.805)
+mesh = SubResource("ArrayMesh_kaqvj")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platform_cliff_edge7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform_cliff_edge7/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_xsvoa")
+
+[node name="Node3D" parent="." instance=ExtResource("9_2cyv4")]
+transform = Transform3D(18.2882, 0, -5.80715, 0, 4, 0, 10.6761, 0, 9.94771, -234.783, 39.5469, 558.115)

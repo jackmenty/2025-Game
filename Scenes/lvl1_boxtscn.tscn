@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0e5jmvjrhgbe"]
+
+[ext_resource type="Script" uid="uid://dkk72swa51yim" path="res://Scripts/lvl1_ box.gd" id="1_jfqaq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4y7ck"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.305521, 0.919143, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6w12k"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_jfqaq")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+layers = 3
+material_override = SubResource("StandardMaterial3D_4y7ck")
+
+[node name="Area3D" type="Area3D" parent="CSGBox3D"]
+collision_layer = 7
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/Area3D"]
+shape = SubResource("BoxShape3D_6w12k")
+
+[connection signal="body_entered" from="CSGBox3D/Area3D" to="." method="_on_area_3d_body_entered"]

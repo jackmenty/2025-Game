@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cq25k3h20sq30"]
+[gd_scene load_steps=17 format=3 uid="uid://cq25k3h20sq30"]
 
 [ext_resource type="PackedScene" uid="uid://bt1sm4q10r8i4" path="res://Scenes/Die_box.tscn" id="1_rbrd7"]
 [ext_resource type="PackedScene" uid="uid://dqfrll158h75v" path="res://Scenes/Player.tscn" id="1_tfsjm"]
@@ -50,6 +50,9 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0)
 }
 point_count = 4
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_tan1m"]
+viewport_path = NodePath("SubViewport")
 
 [node name="Level" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.44116, 0)
@@ -259,5 +262,18 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 79.2004, -2.87148, 91.7526)
 curve = SubResource("Curve3D_sm5oe")
 
 [node name="Wave" parent="." instance=ExtResource("10_tan1m")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 108.741, -0.668639, -7.93048)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 148.028, -0.668639, -122.763)
 curve = SubResource("Curve3D_tan1m")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+
+[node name="Label" type="Label" parent="SubViewport"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "THIS LEVEL BARELY CHANGE JUST FINISH THIS TEST LEVEL
+GO TO THE NEXT LEVEL OK GO AWAY NOW STUPID"
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-34.6364, 0, 3.02801e-06, 0, 34.6364, 0, -3.02801e-06, 0, -34.6364, 0, -48.24, 263.581)
+texture = SubResource("ViewportTexture_tan1m")

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxff3otypwq2e"]
+
+[ext_resource type="PackedScene" uid="uid://cpg162sc6f2sh" path="res://Models/TOWER1.glb" id="1_tkhfn"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fthsv"]
+height = 1.42627
+radius = 0.980957
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_c4yjc"]
+data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1)
+
+[node name="TOWER1" instance=ExtResource("1_tkhfn")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cylinder" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder/StaticBody3D" index="0"]
+transform = Transform3D(0.999986, 0, 0, 0, 0.999999, 0, 0, 0, 0.999986, 0, 0, 0)
+shape = SubResource("CylinderShape3D_fthsv")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_c4yjc")

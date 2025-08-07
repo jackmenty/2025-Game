@@ -44,8 +44,8 @@ anchor_right = 1.04818
 anchor_bottom = 0.464506
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 100
-text = "GAME 3D PLATFORMER
-GAME PLATFORM 3D PLAY"
+text = "PLAY MY PLATFORMER
+    GAM                3D"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true

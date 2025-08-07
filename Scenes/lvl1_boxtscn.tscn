@@ -4,7 +4,7 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4y7ck"]
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.305521, 0.919143, 1, 1)
+albedo_color = Color(0.192254, 0.766179, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6w12k"]
 

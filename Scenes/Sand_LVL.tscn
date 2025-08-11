@@ -649,8 +649,8 @@ ssr_enabled = true
 fog_enabled = true
 fog_light_color = Color(0.895323, 0.623386, 0.121723, 1)
 fog_light_energy = 0.68
-fog_sun_scatter = 0.01
-fog_sky_affect = 0.37
+fog_density = 0.005
+fog_sky_affect = 0.185
 
 [sub_resource type="Curve3D" id="Curve3D_i4myj"]
 resource_local_to_scene = true

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0285i8ux5thp"]
+
+[ext_resource type="PackedScene" uid="uid://cd300kiffwrih" path="res://Models/LVLs/LVL2_TERRAIN.glb" id="1_pvxnc"]
+
+[node name="LVL2_TERRAIN" instance=ExtResource("1_pvxnc")]
+
+[node name="BezierCurve" parent="." index="0"]
+visible = false
+
+[node name="BezierCurve_001" parent="." index="2"]
+visible = false

@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dunyhss6mi873"]
+[gd_scene load_steps=3 format=3 uid="uid://dunyhss6mi873"]
 
 [ext_resource type="PackedScene" uid="uid://duwpatekoqau7" path="res://Models/LVLs/lvl_2.tscn" id="1_7r7uv"]
+[ext_resource type="PackedScene" uid="uid://c0285i8ux5thp" path="res://Models/LVLs/lvl_2_terrain.tscn" id="2_6oldo"]
 
 [node name="Lava_Lvl" type="Node3D"]
 
 [node name="LVL2" parent="." instance=ExtResource("1_7r7uv")]
+
+[node name="LVL2_TERRAIN" parent="." instance=ExtResource("2_6oldo")]
+transform = Transform3D(55, 0, 0, 0, 55, 0, 0, 0, 55, 0, 0, 0)

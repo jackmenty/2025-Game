@@ -1,11 +1,54 @@
-[gd_scene load_steps=3 format=3 uid="uid://dunyhss6mi873"]
+[gd_scene load_steps=9 format=3 uid="uid://dunyhss6mi873"]
 
 [ext_resource type="PackedScene" uid="uid://duwpatekoqau7" path="res://Models/LVLs/lvl_2.tscn" id="1_7r7uv"]
 [ext_resource type="PackedScene" uid="uid://c0285i8ux5thp" path="res://Models/LVLs/lvl_2_terrain.tscn" id="2_6oldo"]
+[ext_resource type="PackedScene" uid="uid://dqfrll158h75v" path="res://Scenes/Player.tscn" id="3_3xdua"]
+[ext_resource type="PackedScene" uid="uid://c7eaui4cxsy3w" path="res://Scenes/lava.tscn" id="4_dk04q"]
+[ext_resource type="PackedScene" uid="uid://bkaw73n8d8xpv" path="res://Models/VOLCANO.glb" id="5_7py51"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dk04q"]
+sky_top_color = Color(0.333014, 0, 0.00692807, 1)
+sky_horizon_color = Color(0.83388, 0.170497, 0, 1)
+sky_energy_multiplier = 4.16
+ground_bottom_color = Color(0.20957, 0.0434177, 0, 1)
+ground_horizon_color = Color(0.228622, 0.0864082, 0, 1)
+
+[sub_resource type="Sky" id="Sky_7py51"]
+sky_material = SubResource("ProceduralSkyMaterial_dk04q")
+
+[sub_resource type="Environment" id="Environment_2otqh"]
+background_mode = 2
+sky = SubResource("Sky_7py51")
+tonemap_mode = 3
+glow_enabled = true
+glow_intensity = 1.65
 
 [node name="Lava_Lvl" type="Node3D"]
 
 [node name="LVL2" parent="." instance=ExtResource("1_7r7uv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.859, 14.8923, -11.9474)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2otqh")
+
+[node name="Player" parent="." instance=ExtResource("3_3xdua")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.65556, 90.3063, -61.4746)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.961218, -0.275788, 5.04663e-09, 0.0884123, -0.308147, 0.947221, -0.261233, 0.910487, 0.32058, 126.859, 132.177, -11.9474)
+light_color = Color(1, 0.665822, 0.429056, 1)
 
 [node name="LVL2_TERRAIN" parent="." instance=ExtResource("2_6oldo")]
-transform = Transform3D(55, 0, 0, 0, 55, 0, 0, 0, 55, 0, 0, 0)
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 126.859, 14.8923, -11.9474)
+
+[node name="Lava" parent="." instance=ExtResource("4_dk04q")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 126.859, -82.1543, -11.9474)
+
+[node name="VOLCANO" parent="." instance=ExtResource("5_7py51")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 133.992, 129.336, 344.858)
+
+[node name="VOLCANO2" parent="." instance=ExtResource("5_7py51")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 257.984, 129.336, -157.29)
+
+[node name="VOLCANO3" parent="." instance=ExtResource("5_7py51")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -112.211, 116.797, 111.759)

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7eaui4cxsy3w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e6qmq"]
+albedo_color = Color(1, 0.677826, 0.22241, 1)
+emission_enabled = true
+emission = Color(0.988943, 0, 0.0730021, 1)
+emission_energy_multiplier = 3.7
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mtm6w"]
+material = SubResource("StandardMaterial3D_e6qmq")
+size = Vector2(100, 100)
+subdivide_width = 50
+subdivide_depth = 50
+
+[node name="Lava" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_mtm6w")

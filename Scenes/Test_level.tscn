@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cq25k3h20sq30"]
+[gd_scene load_steps=18 format=3 uid="uid://cq25k3h20sq30"]
 
 [ext_resource type="PackedScene" uid="uid://bt1sm4q10r8i4" path="res://Scenes/Die_box.tscn" id="1_rbrd7"]
 [ext_resource type="PackedScene" uid="uid://dqfrll158h75v" path="res://Scenes/Player.tscn" id="1_tfsjm"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bsal78eyxj5j1" path="res://Scenes/win_box.tscn" id="5_wssyp"]
 [ext_resource type="PackedScene" uid="uid://h48ned3fpep" path="res://Scenes/moving_platform.tscn" id="6_ffya3"]
 [ext_resource type="PackedScene" uid="uid://bx1prv8ophx1e" path="res://Scenes/Wave.tscn" id="10_tan1m"]
+[ext_resource type="PackedScene" uid="uid://c13r84a5ffs4y" path="res://Scenes/water.tscn" id="11_5i3o1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u104y"]
 albedo_texture = ExtResource("3_tan1m")
@@ -277,3 +278,6 @@ GO TO THE NEXT LEVEL OK GO AWAY NOW STUPID"
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(-34.6364, 0, 3.02801e-06, 0, 34.6364, 0, -3.02801e-06, 0, -34.6364, 0, -48.24, 263.581)
 texture = SubResource("ViewportTexture_tan1m")
+
+[node name="Water" parent="." instance=ExtResource("11_5i3o1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.823, -10.2688, -1.54341)

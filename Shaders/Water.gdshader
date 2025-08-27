@@ -11,6 +11,7 @@ uniform float beer_factor = 0.2;
 uniform float metallic = 0.6;
 uniform float specular = 0.5;
 uniform float roughness = 0.2;
+uniform sampler2D DEPTH_TEXTURE : hint_depth_texture;
 
 float generateOffset(float x, float z, float val1, float val2, float time) {
 	float radiansX = ((mod(x + z * x * val1, amount) / amount) + (time * speed) * mod(x * 0.8 + z, 1.5)) * 2.0 * 3.14;
@@ -38,16 +39,16 @@ void fragment() {
 	ROUGHNESS = roughness;
 	ALBEDO = out_color.rgb;
 	
-	if (beer_factor != 0.0) {
-		float depth = texture(DEPTH_TEXTURE, SCREEN_UV).r;
-
-		depth = depth * 2.0 - 1.0;
-		depth = PROJECTION_MATRIX[3][2] / (depth + PROJECTION_MATRIX[2][2]);
-		depth = depth + VERTEX.z;
-
-		depth = exp(-depth * beer_factor);
-		ALPHA = clamp(1.0 - depth, 0.0, 1.0);
-	} else {
-		ALPHA = out_color.a;
-	}
+	//if (beer_factor != 0.0) {
+		//float depth = texture(DEPTH_TEXTURE, SCREEN_UV).r;
+//
+		//depth = depth * 2.0 - 1.0;
+		//depth = PROJECTION_MATRIX[3][2] / (depth + PROJECTION_MATRIX[2][2]);
+		//depth = depth + VERTEX.z;
+//
+		//depth = exp(-depth * beer_factor);
+		//ALPHA = clamp(1.0 - depth, 0.0, 1.0);
+	//} else {
+		//ALPHA = out_color.a;
+	//}
 }

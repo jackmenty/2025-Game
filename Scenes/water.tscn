@@ -15,6 +15,7 @@ shader_parameter/specular = 0.5
 shader_parameter/roughness = 0.2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_qq3op"]
+resource_local_to_scene = true
 material = SubResource("ShaderMaterial_gf5bf")
 size = Vector2(100, 100)
 subdivide_width = 50

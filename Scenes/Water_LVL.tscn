@@ -1,7 +1,40 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvdfl6pn0g2j3"]
+[gd_scene load_steps=7 format=3 uid="uid://bvdfl6pn0g2j3"]
 
 [ext_resource type="PackedScene" uid="uid://bg2gkx16jyw70" path="res://Models/LVLs/lvl_3.tscn" id="1_ssfmj"]
+[ext_resource type="PackedScene" uid="uid://vvxb2evv6y35" path="res://Models/LVLs/lvl_3_terrain.tscn" id="2_48g1g"]
+[ext_resource type="PackedScene" uid="uid://c13r84a5ffs4y" path="res://Scenes/water.tscn" id="3_fmfqx"]
+[ext_resource type="Shader" uid="uid://bi3ckf8n07tg2" path="res://Shaders/Water.gdshader" id="4_xgbke"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gf5bf"]
+render_priority = 0
+shader = ExtResource("4_xgbke")
+shader_parameter/out_color = Color(0.464404, 0.63516, 1, 1)
+shader_parameter/amount = 1.2
+shader_parameter/speed = 9.0
+shader_parameter/beer_factor = 0.2
+shader_parameter/metallic = 0.6
+shader_parameter/specular = 0.5
+shader_parameter/roughness = 0.2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rstah"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_gf5bf")
+size = Vector2(500, 500)
+subdivide_width = 250
+subdivide_depth = 250
 
 [node name="Water_Lvl" type="Node3D"]
 
 [node name="LVL3" parent="." instance=ExtResource("1_ssfmj")]
+
+[node name="LVL3_TERRAIN" parent="." instance=ExtResource("2_48g1g")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -435.386, -38.9706, 85.2718)
+
+[node name="Water" parent="." instance=ExtResource("3_fmfqx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -429.623, -34.1794, 90.5062)
+
+[node name="MeshInstance3D" parent="Water" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.62408, 0)
+mesh = SubResource("PlaneMesh_rstah")
+
+[editable path="Water"]

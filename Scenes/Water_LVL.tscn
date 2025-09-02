@@ -1,9 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvdfl6pn0g2j3"]
+[gd_scene load_steps=11 format=3 uid="uid://bvdfl6pn0g2j3"]
 
 [ext_resource type="PackedScene" uid="uid://bg2gkx16jyw70" path="res://Models/LVLs/lvl_3.tscn" id="1_ssfmj"]
 [ext_resource type="PackedScene" uid="uid://vvxb2evv6y35" path="res://Models/LVLs/lvl_3_terrain.tscn" id="2_48g1g"]
 [ext_resource type="PackedScene" uid="uid://c13r84a5ffs4y" path="res://Scenes/water.tscn" id="3_fmfqx"]
 [ext_resource type="Shader" uid="uid://bi3ckf8n07tg2" path="res://Shaders/Water.gdshader" id="4_xgbke"]
+[ext_resource type="PackedScene" uid="uid://dqfrll158h75v" path="res://Scenes/Player.tscn" id="5_xgbke"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xgbke"]
+sky_top_color = Color(0.134281, 0.16838, 0.215799, 1)
+sky_horizon_color = Color(0.43045, 0.440011, 0.455106, 1)
+ground_bottom_color = Color(0.0638982, 0.0728758, 0.149726, 1)
+ground_horizon_color = Color(0.0421479, 0.0742675, 0.271115, 1)
+sun_angle_max = 360.0
+
+[sub_resource type="Sky" id="Sky_rstah"]
+sky_material = SubResource("ProceduralSkyMaterial_xgbke")
+
+[sub_resource type="Environment" id="Environment_bicrw"]
+background_mode = 2
+sky = SubResource("Sky_rstah")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gf5bf"]
 render_priority = 0
@@ -25,6 +40,14 @@ subdivide_depth = 250
 
 [node name="Water_Lvl" type="Node3D"]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_bicrw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.616555, 0.787312, 0, -0.787312, 0.616555, 0, 0, 0)
+light_color = Color(0.775063, 0.775063, 0.775063, 1)
+light_indirect_energy = 1.6
+
 [node name="LVL3" parent="." instance=ExtResource("1_ssfmj")]
 
 [node name="LVL3_TERRAIN" parent="." instance=ExtResource("2_48g1g")]
@@ -36,5 +59,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -429.623, -34.1794, 90.5062)
 [node name="MeshInstance3D" parent="Water" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.62408, 0)
 mesh = SubResource("PlaneMesh_rstah")
+
+[node name="Area3D" parent="Water/MeshInstance3D" index="0"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="Player" parent="." instance=ExtResource("5_xgbke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -397.058, 35.1872, 228.156)
 
 [editable path="Water"]

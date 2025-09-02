@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bx1prv8ophx1e"]
 
 [ext_resource type="Script" uid="uid://c5dbu8ycv6vsx" path="res://Scripts/wave.gd" id="1_y54vu"]
-[ext_resource type="PackedScene" uid="uid://ctfkm53arw066" path="res://Models/Wave.glb" id="2_rvxmi"]
+[ext_resource type="PackedScene" uid="uid://mwse0sbf2t7m" path="res://Models/wave_model.tscn" id="2_rvxmi"]
 
 [sub_resource type="Curve3D" id="Curve3D_k8ij1"]
 resource_local_to_scene = true
@@ -63,11 +63,11 @@ libraries = {
 }
 autoplay = "Coming"
 
-[node name="Wave" parent="Area3D" instance=ExtResource("2_rvxmi")]
-transform = Transform3D(-5.805e-08, 0, 2.35423, 0, 2.35423, 0, -1.32803, 0, -1.02907e-07, 0, 0, 0)
-
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Area3D"]
 transform = Transform3D(-4.37114e-08, 0, 31.1185, 0, 1, 0, -1, 0, -1.36023e-06, 0, -2.49394, -0.554211)
 polygon = PackedVector2Array(-2.61172, 0.0639601, 3.86047, -0.0516148, 1.94193, 4.66384, 2.29784, 7.95769, 3.5083, 10.5987, 4.90216, 11.4423, 4.75544, 12.3594, 2.70133, 11.369, 0.867301, 8.10441, -0.966729, 4.25295)
+
+[node name="Wave2" parent="Area3D" instance=ExtResource("2_rvxmi")]
+transform = Transform3D(-5.80487e-08, 0, 2.354, 0, 2.354, 0, -1.328, 0, -1.02897e-07, 0, 0, 0)
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

@@ -36,6 +36,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.33997)
 current = true
 
 [node name="Menu" parent="." instance=ExtResource("3_gntrk")]
+process_mode = 3
 visible = false
 
 [node name="CoyoteTimer" type="Timer" parent="."]

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbgsnhar58ric"]
+
+[ext_resource type="Script" uid="uid://b5pjvjxd0ffnd" path="res://Scripts/damage_box.gd" id="1_ojfmt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1padt"]
+albedo_color = Color(1, 0.678431, 0.223529, 1)
+emission_enabled = true
+emission = Color(1, 0.310959, 0.0807784, 1)
+emission_energy_multiplier = 16.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_ojfmt"]
+material = SubResource("StandardMaterial3D_1padt")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_di46f"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="Lava_box" type="Node3D"]
+script = ExtResource("1_ojfmt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+layers = 7
+mesh = SubResource("BoxMesh_ojfmt")
+
+[node name="Area3D" type="Area3D" parent="MeshInstance3D"]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
+shape = SubResource("ConcavePolygonShape3D_di46f")
+
+[connection signal="body_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_body_entered"]

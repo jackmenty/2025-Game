@@ -10,3 +10,5 @@ func _on_body_entered(body: Node3D) -> void:
 			body.death_pos = position
 			body.heal_up(2)
 			c = true
+			$checkpoint.visible = true
+			$checkpoint_empty.visible = false

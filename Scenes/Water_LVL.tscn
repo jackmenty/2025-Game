@@ -1,14 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://bvdfl6pn0g2j3"]
+[gd_scene load_steps=25 format=3 uid="uid://bvdfl6pn0g2j3"]
 
 [ext_resource type="PackedScene" uid="uid://bg2gkx16jyw70" path="res://Models/LVLs/lvl_3.tscn" id="1_ssfmj"]
 [ext_resource type="PackedScene" uid="uid://vvxb2evv6y35" path="res://Models/LVLs/lvl_3_terrain.tscn" id="2_48g1g"]
 [ext_resource type="PackedScene" uid="uid://c13r84a5ffs4y" path="res://Scenes/water.tscn" id="3_fmfqx"]
 [ext_resource type="Shader" uid="uid://bi3ckf8n07tg2" path="res://Shaders/Water.gdshader" id="4_xgbke"]
+[ext_resource type="PackedScene" uid="uid://bx1prv8ophx1e" path="res://Scenes/Wave.tscn" id="5_1d4ke"]
 [ext_resource type="PackedScene" uid="uid://dqfrll158h75v" path="res://Scenes/Player.tscn" id="5_xgbke"]
 [ext_resource type="PackedScene" uid="uid://ctgvtyxgn6ecj" path="res://Scenes/rain.tscn" id="6_rstah"]
 [ext_resource type="PackedScene" uid="uid://btttwighsia7w" path="res://Models/LIGHTHOUSE.glb" id="7_bicrw"]
 [ext_resource type="PackedScene" uid="uid://bu1gr7xak6ahb" path="res://Scenes/water_platforms.tscn" id="8_84qyr"]
 [ext_resource type="PackedScene" uid="uid://c81grsdc2rew5" path="res://Scenes/buildings.tscn" id="9_1d4ke"]
+[ext_resource type="PackedScene" uid="uid://dywvhp6qba2xn" path="res://Models/pothole.glb" id="11_8n23n"]
+[ext_resource type="PackedScene" uid="uid://drxu7787ij6tj" path="res://Scenes/water_good.tscn" id="12_vcnlm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xgbke"]
 sky_top_color = Color(0.134281, 0.16838, 0.215799, 1)
@@ -32,18 +35,72 @@ render_priority = 0
 shader = ExtResource("4_xgbke")
 shader_parameter/out_color = Color(0.464404, 0.63516, 1, 1)
 shader_parameter/amount = 1.2
-shader_parameter/speed = 1.5
+shader_parameter/speed = 5.0
 shader_parameter/beer_factor = 0.2
 shader_parameter/metallic = 0.6
 shader_parameter/specular = 0.5
 shader_parameter/roughness = 0.2
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_rstah"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_84qyr"]
 resource_local_to_scene = true
 material = SubResource("ShaderMaterial_gf5bf")
 size = Vector2(750, 750)
 subdivide_width = 375
 subdivide_depth = 375
+
+[sub_resource type="Curve3D" id="Curve3D_8n23n"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 4.01477, -3.86077, -42.0036, 0, 0, 0, 0, 0, 0, -4.89285, 5.05758, 53.9755),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7jdm4"]
+render_priority = 0
+shader = ExtResource("4_xgbke")
+shader_parameter/out_color = Color(0.464404, 0.63516, 1, 1)
+shader_parameter/amount = 1.2
+shader_parameter/speed = 5.0
+shader_parameter/beer_factor = 0.2
+shader_parameter/metallic = 0.6
+shader_parameter/specular = 0.5
+shader_parameter/roughness = 0.2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_eg60p"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_7jdm4")
+size = Vector2(500, 100)
+subdivide_width = 250
+subdivide_depth = 50
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jmvyp"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_7jdm4")
+size = Vector2(200, 100)
+subdivide_width = 100
+subdivide_depth = 50
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vcnlm"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_7jdm4")
+size = Vector2(50, 100)
+subdivide_width = 25
+subdivide_depth = 50
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7jdm4"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_7jdm4")
+size = Vector2(150, 100)
+subdivide_width = 75
+subdivide_depth = 50
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mkpby"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_7jdm4")
+size = Vector2(20, 30)
+subdivide_width = 10
+subdivide_depth = 15
 
 [node name="Water_Lvl" type="Node3D"]
 
@@ -61,21 +118,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -177.214, -23.5395, 0)
 [node name="LVL3_TERRAIN" parent="." instance=ExtResource("2_48g1g")]
 transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, -612.6, -62.5101, 85.2718)
 
-[node name="Water" parent="." instance=ExtResource("3_fmfqx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -606.837, -57.7189, 90.5062)
-
-[node name="MeshInstance3D" parent="Water" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.62408, 0)
-mesh = SubResource("PlaneMesh_rstah")
-
-[node name="Area3D" parent="Water/MeshInstance3D" index="0"]
-transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
-
 [node name="Player" parent="." instance=ExtResource("5_xgbke")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1837, 46.7441, 2.24562)
 
 [node name="GPUParticles3D" parent="Player" instance=ExtResource("6_rstah")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50258, 164.228, 1.42187)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50258, 103.188, 1.42187)
 amount = 5000
 
 [node name="LIGHTHOUSE" parent="." instance=ExtResource("7_bicrw")]
@@ -87,4 +133,92 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -177.214, -23.5395, 0)
 [node name="Buildings" parent="." instance=ExtResource("9_1d4ke")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -177.214, -23.5395, 0)
 
+[node name="Water" parent="." instance=ExtResource("3_fmfqx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -618.217, -74.5169, 104.497)
+
+[node name="MeshInstance3D" parent="Water" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.2835, 0)
+mesh = SubResource("PlaneMesh_84qyr")
+
+[node name="CollisionShape3D" parent="Water/MeshInstance3D/Area3D" index="0"]
+transform = Transform3D(7.5, 0, 0, 0, 7.5, 0, 0, 0, 7.5, 0, 0, 0)
+
+[node name="Wave" parent="." instance=ExtResource("5_1d4ke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -388.995, -41.6069, 87.7061)
+curve = SubResource("Curve3D_8n23n")
+
+[node name="pothole" parent="." instance=ExtResource("11_8n23n")]
+transform = Transform3D(2.56, 0, 0, 0, 2.5445, 0.281275, 0, -0.281275, 2.5445, 18.406, -11.8793, -55.4115)
+
+[node name="good_water" parent="." instance=ExtResource("12_vcnlm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 370.074, 12.2946, 90.0345)
+
+[node name="MeshInstance3D" parent="good_water" index="0"]
+transform = Transform3D(0.996144, -0.0877295, 0, 0.0877295, 0.996144, 0, 0, 0, 1, -114.45, 6.27737, 1.74919)
+mesh = SubResource("PlaneMesh_eg60p")
+
+[node name="good_water2" parent="." instance=ExtResource("12_vcnlm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4608, 3.56073, 91.8531)
+
+[node name="MeshInstance3D" parent="good_water2" index="0"]
+transform = Transform3D(0.99978, -0.0209032, -0.00154054, 0.0209599, 0.997076, 0.0734831, 0, -0.0734993, 0.997295, 38.5851, 2.04041, 0)
+mesh = SubResource("PlaneMesh_jmvyp")
+
+[node name="good_water3" parent="." instance=ExtResource("12_vcnlm")]
+transform = Transform3D(0.994957, -0.100298, -0.00102746, 0.100285, 0.994526, 0.0293604, -0.00192294, -0.0293154, 0.999568, -89.1428, -2.03042, 94.3805)
+
+[node name="good_water5" parent="." instance=ExtResource("12_vcnlm")]
+transform = Transform3D(0.960648, -0.277767, 0, 0.277767, 0.960648, 0, 0, 0, 1, -299.743, -25.7558, 87.9579)
+
+[node name="MeshInstance3D" parent="good_water5" index="0"]
+transform = Transform3D(0.999722, 0.0235946, 0, -0.0235946, 0.999722, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_vcnlm")
+skeleton = NodePath("../../good_water5")
+
+[node name="good_water4" parent="." instance=ExtResource("12_vcnlm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -167.309, -4.89942, 86.0732)
+
+[node name="MeshInstance3D" parent="good_water4" index="0"]
+transform = Transform3D(0.996018, -0.089155, 0, 0.089155, 0.996018, 0, 0, 0, 1, -40.4234, -9.03365, 0)
+mesh = SubResource("PlaneMesh_7jdm4")
+skeleton = NodePath("../../good_water4")
+
+[node name="good_water6" parent="." instance=ExtResource("12_vcnlm")]
+transform = Transform3D(0.823017, -0.568016, 0, 0.568016, 0.823017, 0, 0, 0, 1, -332.238, -42.4506, 87.9579)
+
+[node name="MeshInstance3D" parent="good_water6" index="0"]
+transform = Transform3D(0.999722, 0.0235946, 0, -0.0235946, 0.999722, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_vcnlm")
+skeleton = NodePath("../../good_water5")
+
+[node name="good_water7" parent="." instance=ExtResource("12_vcnlm")]
+transform = Transform3D(0.670504, -0.741906, 0, 0.741906, 0.670504, 0, 0, 0, 1, -350.388, -59.9693, 81.857)
+
+[node name="MeshInstance3D" parent="good_water7" index="0"]
+transform = Transform3D(0.999722, 0.0235946, 0, -0.0235946, 0.999722, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_vcnlm")
+skeleton = NodePath("../../good_water5")
+
+[node name="good_water8" parent="." instance=ExtResource("12_vcnlm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -363.205, -19.5825, 85.4888)
+
+[node name="MeshInstance3D" parent="good_water8" index="0"]
+transform = Transform3D(0.916209, -0.400701, 0, 0.400701, 0.916209, 0, 0, 0, 1, 35.6148, -15.3836, 0)
+mesh = SubResource("PlaneMesh_mkpby")
+
+[node name="good_water9" parent="." instance=ExtResource("12_vcnlm")]
+transform = Transform3D(0.97123, -0.238144, 0, 0.238144, 0.97123, 0, 0, 0, 1, -381.085, -37.6362, 85.4888)
+
+[node name="MeshInstance3D" parent="good_water9" index="0"]
+transform = Transform3D(0.916209, -0.400701, 0, 0.400701, 0.916209, 0, 0, 0, 1, 35.6148, -15.3836, 0)
+mesh = SubResource("PlaneMesh_mkpby")
+
 [editable path="Water"]
+[editable path="good_water"]
+[editable path="good_water2"]
+[editable path="good_water5"]
+[editable path="good_water4"]
+[editable path="good_water6"]
+[editable path="good_water7"]
+[editable path="good_water8"]
+[editable path="good_water9"]

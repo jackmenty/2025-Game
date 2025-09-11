@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://g4ovjpnsc3re"]
+
+[ext_resource type="PackedScene" uid="uid://dm7h1lhvfsjn8" path="res://Models/tower_volcano.glb" id="1_jdk5x"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_uxofn"]
+points = PackedVector3Array(2.83296, -53.8828, 13.4388, -15.064, -53.8291, 1.11621, -3.66316, -53.8613, 7.30547, 6.95221, -53.8721, 5.84933, 11.074, -53.8559, -1.74017, 0.998494, 0.774368, 0.99908, -1.50376, 0.774368, 0.969797, -4.26954, -53.8022, -13.7567, -8.45786, -53.8183, -6.04204, -1.47305, 0.779739, -1.55649, 4.74164, -53.8291, -8.17434, 0.998494, 0.774368, -1.00012, 0.778459, 1, 0.77813, -1.28116, 1, 0.77813, -1.28116, 1, -1.35683, -0.00189495, 0.779739, -1.5485, -0.0607414, 1, -1.35683, 0.778459, 1, -0.87234)
+
+[node name="tower_volcano" instance=ExtResource("1_jdk5x")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0"]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_uxofn")

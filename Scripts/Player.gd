@@ -69,7 +69,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 
 	if Input.is_action_just_pressed("jump") and is_on_floor() and Input.is_action_pressed("sprint")|| Input.is_action_pressed("jump") and time_in_air < .2 and Input.is_action_pressed("sprint"):
-		velocity.y = JUMP_VELOCITY + 10
+		velocity.y = JUMP_VELOCITY + 5
 
 	var was_on_floor = is_on_floor()
 	

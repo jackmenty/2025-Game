@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=4 uid="uid://dunyhss6mi873"]
+[gd_scene load_steps=110 format=4 uid="uid://dunyhss6mi873"]
 
 [ext_resource type="PackedScene" uid="uid://duwpatekoqau7" path="res://Models/LVLs/lvl_2.tscn" id="1_7r7uv"]
 [ext_resource type="PackedScene" uid="uid://c0285i8ux5thp" path="res://Models/LVLs/lvl_2_terrain.tscn" id="2_6oldo"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dhdotujmlihgl" path="res://Scenes/Moving platforms/Moving_lava_long.tscn" id="12_6oovw"]
 [ext_resource type="PackedScene" uid="uid://md3e18c5n5ib" path="res://Scenes/Moving platforms/Moving_lava_up.tscn" id="13_hj0eh"]
 [ext_resource type="PackedScene" uid="uid://c77scxbyspp3y" path="res://Scenes/Moving platforms/Moving_lava_down.tscn" id="14_1oakd"]
+[ext_resource type="PackedScene" uid="uid://6yreau8ryyvs" path="res://Scenes/lvl2_boxtscn.tscn" id="15_oibov"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dk04q"]
 sky_top_color = Color(0.333014, 0, 0.00692807, 1)
@@ -1413,6 +1414,7 @@ point_count = 2
 
 [node name="LVL2" parent="." instance=ExtResource("1_7r7uv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.6552, 119.821, -63.1067)
+visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2otqh")
@@ -1441,6 +1443,7 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 162.738, 11.7737, 15
 
 [node name="minecart" parent="." instance=ExtResource("7_tohxs")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 16.3319, 67.8354, 6.4078)
+visible = false
 
 [node name="Big platform" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.78814e-07, 0, -1, 0, 1.48175, 0, 1, 0, 1.78814e-07, 41.8521, -71.371, -50.0195)
@@ -1518,7 +1521,6 @@ curve = SubResource("Curve3D_1oakd")
 transform = Transform3D(1.54203, 0, 0, 0, 1.54203, 0, 0, 0, 1.54203, 178.794, 6.61532, 68.5607)
 
 [node name="Player" parent="." instance=ExtResource("3_3xdua")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 178.171, 39.3375, 10.611)
 
 [node name="tower_volcano" parent="." instance=ExtResource("11_0xhlu")]
 transform = Transform3D(1.44166, 0.0902199, 0.496554, 0.0200908, 3.29319, -0.156151, -0.545826, 0.359509, 1.30577, 223.95, 74.1947, 51.774)
@@ -1854,6 +1856,9 @@ curve = SubResource("Curve3D_sb8j8")
 [node name="Path3D12" parent="." instance=ExtResource("14_1oakd")]
 transform = Transform3D(0.791917, 0, -0.610629, 0, 1, 0, 0.610629, 0, 0.791917, 112.747, -3.43575, 243.478)
 curve = SubResource("Curve3D_5oahl")
+
+[node name="Node3D" parent="." instance=ExtResource("15_oibov")]
+transform = Transform3D(6.48547, 0, 1.98343, 0, 6.78199, 0, -1.98343, 0, 6.48547, 163.585, -30.2801, 389.206)
 
 [editable path="LVL2"]
 [editable path="minecart"]

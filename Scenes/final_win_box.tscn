@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cadd42uea5v7q"]
+
+[ext_resource type="Script" uid="uid://b0hqt45g4nhdq" path="res://Scripts/final_win_box.gd" id="1_h23er"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1br41"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_h23er")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+
+[node name="Area3D" type="Area3D" parent="CSGBox3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/Area3D"]
+shape = SubResource("BoxShape3D_1br41")
+
+[connection signal="body_entered" from="CSGBox3D/Area3D" to="." method="_on_area_3d_body_entered"]

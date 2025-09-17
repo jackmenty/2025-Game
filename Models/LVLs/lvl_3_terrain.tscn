@@ -103,6 +103,14 @@ shape = SubResource("BoxShape3D_xsanc")
 transform = Transform3D(4.00065e-08, 0, 0.45762, 0, 0.129008, 0, -0.45762, 0, 4.00065e-08, 3.72078, 4.81471, 1.76841)
 shape = SubResource("BoxShape3D_xsanc")
 
+[node name="CollisionShape3D21" type="CollisionShape3D" parent="Cube_003/StaticBody3D" index="20"]
+transform = Transform3D(-0.375915, 0, -0.260966, 0, 0.129008, 0, 0.260966, 0, -0.375915, -7.81218, 7.40854, -10.1872)
+shape = SubResource("BoxShape3D_xsanc")
+
+[node name="CollisionShape3D22" type="CollisionShape3D" parent="Cube_003/StaticBody3D" index="21"]
+transform = Transform3D(-0.260966, 0, 0.375915, 0, 0.129008, 0, -0.375915, 0, -0.260966, -8.83818, 7.40854, -4.38813)
+shape = SubResource("BoxShape3D_xsanc")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube_004" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_004/StaticBody3D" index="0"]

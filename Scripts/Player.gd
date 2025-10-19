@@ -67,10 +67,9 @@ func return_to_checkpoint():
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
-		#animation_player.play("FALLING")
+		animation_player.play("FALLING")
 		velocity += get_gravity() * delta * 4
 		time_in_air += delta
-		
 	if velocity.x == 0 and velocity.z == 0 and is_on_floor():
 		animation_player.play("IDLE")
 	

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqfrll158h75v"]
+[gd_scene load_steps=9 format=3 uid="uid://dqfrll158h75v"]
 
 [ext_resource type="Script" uid="uid://oxp5hxhgiv1a" path="res://Scripts/Player.gd" id="1_0y7nr"]
 [ext_resource type="Script" uid="uid://b8c0gssqg25j1" path="res://Scripts/camera_spring_arm.gd" id="2_jo2ib"]
 [ext_resource type="PackedScene" uid="uid://cgidimangjygo" path="res://Scenes/Menu.tscn" id="3_gntrk"]
 [ext_resource type="PackedScene" uid="uid://b2eewr5u8drk0" path="res://Scenes/Game_over.tscn" id="4_dewec"]
 [ext_resource type="Theme" uid="uid://dvq37ujhe48d3" path="res://Theme/ui_template.tres" id="6_nn08x"]
+[ext_resource type="PackedScene" uid="uid://dnyvp0h4h7vgw" path="res://Scenes/player_model.tscn" id="7_52ee3"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jo2ib"]
 
@@ -19,6 +20,7 @@ springarm = NodePath("SpringArm3D")
 camera = NodePath("SpringArm3D/Camera3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 layers = 3
 mesh = SubResource("CapsuleMesh_jo2ib")
 
@@ -69,3 +71,8 @@ anchor_right = 0.145833
 anchor_bottom = 0.160494
 theme_override_font_sizes/font_size = 20
 metadata/_edit_use_anchors_ = true
+
+[node name="TEST" parent="." instance=ExtResource("7_52ee3")]
+transform = Transform3D(-0.3, 0, 2.62268e-08, 0, 0.3, 0, -2.62268e-08, 0, -0.3, 0, -1, 0)
+
+[editable path="TEST"]

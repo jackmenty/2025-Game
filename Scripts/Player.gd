@@ -70,6 +70,7 @@ func _physics_process(delta: float) -> void:
 		animation_player.play("FALLING")
 		velocity += get_gravity() * delta * 4
 		time_in_air += delta
+	
 	if velocity.x == 0 and velocity.z == 0 and is_on_floor():
 		animation_player.play("IDLE")
 	
@@ -78,19 +79,17 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("jump") and is_on_floor() and Input.is_action_pressed("sprint")|| Input.is_action_pressed("jump") and time_in_air < .2 and Input.is_action_pressed("sprint"):
 		velocity.y = JUMP_VELOCITY + 10
-
-	#if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right") or Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_back"):
-		#print(animation_player)
-		#animation_player.play("WALKING")
 		
 	var was_on_floor = is_on_floor()
 	
 	if is_on_floor():
 		time_in_air = 0
-		animation_player.play("IDLE")
-
-	if Input.is_action_pressed("move_forward") and is_on_floor():
+		
+	if Input.is_action_pressed("move_forward") and is_on_floor() and Input.is_action_pressed("sprint") or Input.is_action_pressed("move_back") and is_on_floor() and Input.is_action_pressed("sprint") or Input.is_action_pressed("move_left") and is_on_floor() and Input.is_action_pressed("sprint") or Input.is_action_pressed("move_right") and is_on_floor() and Input.is_action_pressed("sprint"):
 		animation_player.play("RUNNING")
+
+	elif Input.is_action_pressed("move_forward") and is_on_floor() or Input.is_action_pressed("move_back") and is_on_floor() or Input.is_action_pressed("move_left") and is_on_floor() or Input.is_action_pressed("move_right") and is_on_floor():
+		animation_player.play("WALKING")
 
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 
